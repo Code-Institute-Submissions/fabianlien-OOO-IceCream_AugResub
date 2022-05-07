@@ -1,0 +1,12 @@
+@font-face {
+    font-family: Recoleta;
+    src: url("../fonts/Recoleta-RegularDEMO.otf") format("opentype");
+}
+
+body {
+    font-family: Recoleta, sans-serif;
+}
+
+nav {
+    font-family: Recoleta, sans-serif;
+}
