@@ -7,6 +7,43 @@ body {
     font-family: Recoleta, sans-serif;
 }
 
+
+/* Navbar */
+
+nav h2 {
+    color: rgb(5 103 53);
+    font-size: 200%;
+    letter-spacing: 1px;
+}
+
+.navbar-light {
+    background-color: rgb(250 244 180);
+}
+
 nav {
     font-family: Recoleta, sans-serif;
+}
+
+.nav-burger-icon img {
+    height: 48px;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+#logotype {
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+nav a {
+    font-size: larger;
+}
+
+nav .active a {
+    text-decoration: underline;
+    color: rgb(5 103 53);
 }
