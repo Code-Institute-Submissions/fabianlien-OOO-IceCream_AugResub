@@ -16,8 +16,8 @@
 
 <body>
 
-    <head>
-        <nav class="navbar navbar-expand-lg navbar-light">
+    <header>
+        <nav class="navbar navbar-light">
             <a class="navbar-brand" href="#"><h2>Triple Oh!</h2></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,12 +54,16 @@
                 
             </div>
         </nav>
-    </head>
+    </header>
     <main>
         {% block content %}
-
         {% endblock %}
     </main>
+    <footer>
+      <div id="footer-container">
+          <span>Follow us </span><a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
@@ -69,6 +73,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
+    <script src="https://kit.fontawesome.com/171d053c1a.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

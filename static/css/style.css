@@ -1,3 +1,5 @@
+/* Fonts */
+
 @font-face {
     font-family: Recoleta;
     src: url("../fonts/Recoleta-RegularDEMO.otf") format("opentype");
@@ -6,7 +8,6 @@
 body {
     font-family: Recoleta, sans-serif;
 }
-
 
 /* Navbar */
 
@@ -20,8 +21,13 @@ nav h2 {
     background-color: rgb(250 244 180);
 }
 
+.navbar-brand {
+    margin-left: 5%;
+}
+
 nav {
     font-family: Recoleta, sans-serif;
+    min-height: 15vh;
 }
 
 .nav-burger-icon img {
@@ -30,6 +36,7 @@ nav {
 
 .navbar-toggler {
     border: none;
+    margin-right: 5%;
 }
 
 #logotype {
@@ -46,4 +53,60 @@ nav a {
 nav .active a {
     text-decoration: underline;
     color: rgb(5 103 53);
+}
+
+/* Footer */
+
+#footer-container {
+    background-color: rgb(5 103 53);
+    color: rgb(250 244 180);
+    height: 5vh;
+    text-align: center;
+}
+
+#footer-container i {
+    font-size: 180%;
+    margin-top: 0.5em;
+    margin-bottom: auto;
+    color: rgb(250 244 180);
+}
+
+#footer-container i:hover {
+    color: rgb(248 186 166);;
+}
+
+
+/* Index page */
+
+.slide-container {
+    height: 80vh;
+    width: 100%;
+    margin: 0;
+    background: url("../images/triple-oh-banner.png");
+    background-position: center;
+}
+
+.carousel-item {
+    position: relative;
+    z-index: 1;
+    height: 65vh;
+}
+
+.slide {
+    height: 65vh;
+    background-color: rgb(250 244 180);
+    margin-top: 5vh;
+    margin-left: 5%;
+    width: 90%;
+    border-radius: 2em;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .slide {
+        margin-left: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+
 }
