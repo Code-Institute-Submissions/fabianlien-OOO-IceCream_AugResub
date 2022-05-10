@@ -126,3 +126,14 @@ nav .active a {
     }
 
 }
+
+.color-ball {
+    height: 48px;
+    width: 48px;
+    border: 3px solid rgb(5 103 53);
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 1em;
+    top: 1em;
+}

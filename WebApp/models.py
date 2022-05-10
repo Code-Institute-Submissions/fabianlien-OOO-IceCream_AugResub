@@ -26,4 +26,4 @@ class Flavour(models.Model):
         ordering = ['category']
 
     def __str__(self):
-        return "Ice-cream flavour"
+        return self.name
