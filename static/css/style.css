@@ -42,17 +42,33 @@ nav {
 #logotype {
     height: 100px;
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 10px;
+    margin-left: 20%;
 }
 
 nav a {
     font-size: larger;
+    text-align: right;
+    margin-right: 6.1%;
+}
+
+.nav-item {
+    margin-right: 12px;
 }
 
 nav .active a {
     text-decoration: underline;
     color: rgb(5 103 53);
+}
+
+#slide-2 {
+    letter-spacing: 4px;
+    color: rgb(80 38 34);
+}
+
+#slide-2:hover {
+    letter-spacing: 6px;
+    color: rgb(248 186 166);
 }
 
 /* Footer */
@@ -72,7 +88,7 @@ nav .active a {
 }
 
 #footer-container i:hover {
-    color: rgb(248 186 166);;
+    color: rgb(248 186 166);
 }
 
 
@@ -82,7 +98,7 @@ nav .active a {
     height: 80vh;
     width: 100%;
     margin: 0;
-    background: url("../images/triple-oh-banner.png");
+    background: url("../images/triple-oh-banner.png") no-repeat;
     background-position: center;
 }
 
