@@ -1,5 +1,10 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
+from django.views import generic, View
+from .models import Flavour
+
 
 # Create your views here.
-def Main(request):
-    return render(request, 'index.html')
+class Main(generic.ListView):
+    model = Flavour
+    queryset = Flavour.objects.order_by('category')
+    template_name = 'index.html'

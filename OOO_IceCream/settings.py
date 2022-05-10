@@ -47,7 +47,10 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
-    'WebApp'
+    'colorfield',
+    'solo.apps.SoloAppConfig',
+    'WebApp',
+    'BookingApp',
 ]
 
 MIDDLEWARE = [
