@@ -16,11 +16,11 @@ class About(SingletonModel):
 
 
 class Flavour(models.Model):
-    name = models.CharField(max_length=50, unique=True)
-    category = models.CharField(max_length=50)
-    description = models.TextField(max_length=150)
+    name = models.CharField(max_length=20, unique=True)
+    category = models.CharField(max_length=20)
+    description = models.TextField(max_length=120)
     color = ColorField(default='#FF0000')
-    allergens = models.TextField(max_length=100)
+    allergens = models.TextField(max_length=60)
 
     class Meta:
         ordering = ['category']

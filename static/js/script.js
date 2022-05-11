@@ -4,7 +4,7 @@ $(document).ready(function() {
     })
 
 
-    /** Changes the carousel slide to corresponding navlink when clicked */
+    /** Changes the carousel slide to corresponding navlink when clicked. */
     for (let i = 0; i < $('.carousel-inner').children().length; i++) {
       $('#slide-' + i).click(function() {
           $('.carousel').carousel(i);
@@ -12,15 +12,19 @@ $(document).ready(function() {
     }
 
 
-    /** Removes active class from current navlink then add it to the corresponding slide */
+    /** Removes active class from current navlink then add it to the corresponding slide. */
     $('#carouselExampleIndicators').on('slide.bs.carousel', function () {
       for (let i = 0; i < $('.carousel-inner').children().length; i++) {
           $('#slide-' + i).parent().removeClass('active')
       }
       if ($('.carousel-indicators').children().hasClass('active')) {
           let slideNum = ($('.active').attr('data-slide-to'))
-          console.log($('#slide-' + slideNum))
           $('#slide-' + slideNum).parent().addClass('active')
       }
+    })
+
+    /** Collapses the navbar on click anywhere on the page. */
+    $('body').click(function() {
+        $('#navbarSupportedContent').collapse('hide')
     })
 });
