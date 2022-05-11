@@ -7,8 +7,8 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class About(SingletonModel):
-    title = models.CharField(max_length=50)
-    content = models.TextField()
+    title = models.CharField(max_length=30)
+    content = models.TextField(max_length=120)
     image = CloudinaryField('image', default=None)
 
     def __str__(self):

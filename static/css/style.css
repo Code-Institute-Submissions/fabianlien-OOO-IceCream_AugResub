@@ -7,7 +7,7 @@
 
 body {
     font-family: Recoleta, sans-serif;
-    background-color: rgb(248 186 166);
+    background-color: rgb(146, 211, 140);
 }
 
 /* Navbar */
@@ -172,7 +172,57 @@ nav .active a {
 
 }
 
-/* Flavour cards */
+/* About slide */
+
+.big-card {
+    background-color: rgb(5 103 53);
+    color: rgb(250 244 180);
+    border-radius: 12px;
+    border-bottom-right-radius: 120px;
+    margin-top: 5vh;
+    height: 40vh;
+    line-height: 35vh;
+    text-align: right;
+}
+
+.big-card h5 {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5vh;
+    margin-right: 5vw;
+    line-height: normal;
+    font-size: 160%;
+}
+
+#landing-slide-image-border {
+    height: 35vh;
+    width: 30vh;
+    background-color: rgb(248 186 166);
+    border-radius: 50%;
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+#landing-slide-image {
+    height: 30vh;
+    width:  24vh;
+    border-radius: 45%;
+    position: relative;
+    right: 10%;
+}
+
+@media screen and (max-width: 767px) {
+    .big-card {
+        border-radius: 120px;
+        text-align: center;
+    }
+    .big-card h5 {
+        padding: 48px;
+        font-size: 180%;
+    }
+}
+
+/* Flavour cards slide */
 
 .color-ball {
     height: 64px;
@@ -194,7 +244,7 @@ nav .active a {
 }
 
 .card-green {
-    background-color: rgb(152, 255, 157);
+    background-color: rgb(146, 211, 140);
 }
 
 .card-pink {

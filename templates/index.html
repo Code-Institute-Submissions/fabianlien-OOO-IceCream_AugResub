@@ -14,7 +14,20 @@
                 <div class="carousel-item active">
                     <div class="d-block slide">
                         <h3>{{ about.title }}</h3>
-                        <p>{{ about.content }}</p>
+                        <div class="row">
+                            <div class=" col-lg-10 offset-lg-1 big-card">
+                                <div class="row">
+                                    <div class="col-5 d-none d-md-inline">
+                                        <div id="landing-slide-image-border">
+                                            <img id="landing-slide-image" src="{{ about.image.url }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 offset-md-1">
+                                        <h5>{{ about.content }}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="carousel-item car-item-scroll">
