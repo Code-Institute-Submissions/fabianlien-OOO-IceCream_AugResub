@@ -204,6 +204,7 @@ nav .active a {
 }
 
 #landing-slide-image {
+    object-fit: cover;
     height: 30vh;
     width:  24vh;
     border-radius: 45%;

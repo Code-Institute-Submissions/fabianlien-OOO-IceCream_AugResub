@@ -33,21 +33,8 @@
                             </div>
                         </div>
                         <div class="col-10">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#" id="slide-0">About Us<span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" id="slide-1">Ice cream flavors</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" id="slide-2">Nybrogatan 23</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" target="_blank">Download our dessert menu</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" id="slide-3">Contact Us</a>
-                            </li>
+                            {% block nav_content %}
+                            {% endblock %}
                         </div>
                     </div>
                 </ul>
@@ -56,7 +43,7 @@
         </nav>
     </header>
     <main>
-        {% block content %}
+        {% block main_content %}
         {% endblock %}
     </main>
     <footer>
