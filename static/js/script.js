@@ -23,6 +23,7 @@ $(document).ready(function() {
       }
     })
 
+    
     /** Collapses the navbar on click anywhere on the page. */
     $('body').click(function() {
         $('#navbarSupportedContent').collapse('hide')

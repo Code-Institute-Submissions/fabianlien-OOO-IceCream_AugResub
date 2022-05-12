@@ -25,9 +25,9 @@ body {
   scrollbar-width: none;  /* Firefox */
 }
 
-nav h2 {
+nav h1 {
     color: rgb(5 103 53);
-    font-size: 200%;
+    font-size: 300%;
     letter-spacing: 1px;
 }
 
@@ -85,6 +85,17 @@ nav .active a {
     color: rgb(248 186 166);
 }
 
+@media screen and (max-width: 767px) {
+    nav a {
+        font-size: x-large;
+        margin-bottom: 1em;
+    }
+
+    nav {
+        min-height: 5vh;
+    }
+}
+
 /* Footer */
 
 #footer-container {
@@ -104,7 +115,6 @@ nav .active a {
 #footer-container i:hover {
     color: rgb(248 186 166);
 }
-
 
 /* Index page */
 
@@ -167,11 +177,26 @@ nav .active a {
     left: 40%;
 }
 
+.card-container:first-of-type .card-body {
+    border-top-left-radius: 1.5em;
+    border-top-right-radius: 1.5em;
+}
+
+.card-container:last-of-type .card-body {
+    border-bottom-left-radius: 1.5em;
+    border-bottom-right-radius: 1.5em;
+}
+
+
 @media screen and (max-width: 767px) {
     .slide {
         margin-left: 0;
         width: 100%;
         border-radius: 0;
+    }
+
+    .slide-container {
+        height: 84vh;
     }
 
 }
@@ -312,6 +337,20 @@ nav .active a {
     }
 }
 
+/* Visit Nybrogatan slide */
+
+#nybrogatan-image {
+    border: double 2em rgb(5 103 53);
+    margin-top: 2vh;
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 50vh; 
+}
+
+#nybrogatan-image:hover {
+    border-color: rgb(146, 211, 140);
+}
+
 /* Contact cards slide */
 
 .image-ball {
@@ -348,11 +387,11 @@ nav .active a {
         margin-left: 13.4vw;
     }
 
-    .contact-card-right {
+    #contact-cards .contact-card-right {
         border-bottom-right-radius: 64px;
     }
     
-    .contact-card {
+    #contact-cards .contact-card {
         border-bottom-left-radius: 64px;
     }
 }

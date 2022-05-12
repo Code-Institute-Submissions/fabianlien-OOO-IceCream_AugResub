@@ -6,7 +6,7 @@ from .models import Flavour, About, MenuPDF, Contact
 # Create your views here.
 class MainPage(View):
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request):
         about = About.objects.get(id=1)
         pdf_menu = MenuPDF.objects.get(id=1)
         flavour_list = Flavour.objects.order_by('category', 'name')
@@ -17,3 +17,9 @@ class MainPage(View):
             'pdf_menu': pdf_menu,
             'contacts': contact_list
             })
+
+
+class Nybrogatan23(View):
+
+    def get(self, request):
+        return render(request, 'nybrogatan23.html')
