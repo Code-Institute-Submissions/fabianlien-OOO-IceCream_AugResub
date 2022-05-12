@@ -10,7 +10,11 @@ from django.contrib.auth.models import User
 class About(SingletonModel):
     title = models.CharField(max_length=30)
     content = models.TextField(max_length=120)
-    image = CloudinaryField('image', default=None)
+    image = CloudinaryField(
+        'image',
+        default=None,
+        validators=[FileExtensionValidator(allowed_extensions=["png", "jpg"])]
+        )
 
     class Meta:
         verbose_name_plural = 'About Statement'
@@ -43,4 +47,11 @@ class Flavour(models.Model):
         ordering = ['category']
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=40)
+    phone_number = models.BigIntegerField(unique=True, blank=True)
+    email = models.EmailField(unique=True, blank=True)
+    address = models.CharField(max_length=60, blank=True)
