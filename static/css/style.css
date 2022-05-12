@@ -10,6 +10,10 @@ body {
     background-color: rgb(146, 211, 140);
 }
 
+h3 {
+    padding-bottom: 1em;
+}
+
 /* Navbar */
 
 body::-webkit-scrollbar {
@@ -284,7 +288,7 @@ nav .active a {
     }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 993px) {
     .card-container {
         padding: 4px;
     }
@@ -305,5 +309,60 @@ nav .active a {
        bottom: 1em;
        text-align: start;
        padding-right: 1.5em;
+    }
+}
+
+/* Contact cards slide */
+
+.image-ball {
+    height: 96px;
+    width: 96px;
+}
+
+.contact-image {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+}
+
+.contact-card {
+    background-color: rgb(180 177 141);
+}
+
+.contact-card-right {
+    background-color: rgb(202, 202, 173);
+}
+
+.contact-card-right .image-ball{
+    left: unset;
+    right: 2em;
+}
+
+@media screen and (min-width: 993px) {
+    #contact-cards .contact-card-right p {
+        margin-right: 13.4vw;
+    }
+
+    #contact-cards .contact-card p {
+        margin-left: 13.4vw;
+    }
+
+    .contact-card-right {
+        border-bottom-right-radius: 64px;
+    }
+    
+    .contact-card {
+        border-bottom-left-radius: 64px;
+    }
+}
+
+@media screen and (min-width: 1201px) {
+    #contact-cards .contact-card-right p {
+        margin-right: 11.1vw;
+    }
+
+    #contact-cards .contact-card p {
+        margin-left: 11.1vw;
     }
 }

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import About, Flavour, MenuPDF
+from .models import About, Flavour, MenuPDF, Contact
 
 
 # Register your models here.
@@ -12,3 +12,5 @@ class AdminContent(admin.ModelAdmin):
 
 admin.site.register(About)
 admin.site.register(MenuPDF)
+admin.site.register(Contact)
+

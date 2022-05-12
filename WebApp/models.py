@@ -55,3 +55,10 @@ class Contact(models.Model):
     phone_number = models.BigIntegerField(unique=True, blank=True)
     email = models.EmailField(unique=True, blank=True)
     address = models.CharField(max_length=60, blank=True)
+    image = CloudinaryField('image', default='placeholder')
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return f'{self.name}'

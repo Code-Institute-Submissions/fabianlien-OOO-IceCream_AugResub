@@ -29,6 +29,7 @@
                 <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
             </ol>
             <div class="carousel-inner">
+                <!-- About Slide -->
                 <div class="carousel-item active">
                     <div class="d-block slide">
                         <h3>{{ about.title }}</h3>
@@ -48,6 +49,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Flavours Slide -->
                 <div class="carousel-item car-item-scroll">
                     <div class="d-block slide">
                         <h3>Our Ice Cream:</h3>
@@ -58,7 +60,7 @@
                                 <div class="card-body card-green">
                                 {% else %}
                                 <div class="card-body card-pink">
-                                        {% endif %}
+                                    {% endif %}
                                         <div class="color-ball" style="background-color:{{ flavour.color }}"></div>
                                         <p class="card-title">{{ flavour.name }}</p>
                                         <p class="card-subtitle mb-2 text-muted">{{ flavour.category }}</p>
@@ -70,14 +72,42 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Nybrogtan Slide -->
                     <div class="carousel-item">
                         <div class="d-block slide">
                             <h3>Visit Nybrogatan 23:</h3>
                         </div>
                     </div>
-                    <div class="carousel-item">
+                    <!-- Contacts Slide -->
+                    <div class="carousel-item car-item-scroll">
                         <div class="d-block slide">
                             <h3>Contact Us:</h3>
+                            <div class="row">
+                                {% for contact in contacts %}
+                                <div id="contact-cards" class="card-container col-lg-12">
+                                {% if forloop.counter|divisibleby:2 %}
+                                <div class="card-body col-lg-10 card-green contact-card">
+                                {% else %}
+                                <div class="card-body col-lg-10 card-pink contact-card-right offset-lg-2">
+                                    {% endif %}
+                                        {% if "placeholder" in contact.image.url %}
+                                        <div class="color-ball image-ball d-none d-md-inline">
+                                            <img class="contact-image" src="../static/images/logotype.png">
+                                        </div>
+                                        {% else %}
+                                        <div class="color-ball image-ball d-none d-md-inline">
+                                            <img class="contact-image" src="{{ contact.image.url }}">
+                                        </div>
+                                        {% endif %}
+                                        <p class="card-title">{{ contact.name }}</p>
+                                        <p class="card-subtitle mb-2">+46{{ contact.phone_number }}</p>
+                                        <p class="card-subtitle mb-2">{{ contact.address }}</p>
+                                        <br>
+                                        <p class="card-text">{{ contact.email }}</p>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                 </div>
