@@ -1,7 +1,27 @@
 $(document).ready(function() { 
     $('.carousel').carousel({
-      interval: 8000
+      interval: 6000
     })
+
+
+    /** Unpauses zoom animation then navigates to the Nybrogatan23 page after short delay. */
+    function timeOut(initialDelay) {
+      if(initialDelay === true) {
+        setTimeout(function () {
+          $('#nybrogatan-image').css("animation-play-state", "running");
+        }, 500);
+        setTimeout(function () {
+          let path = window.location.href.slice(0, -2).concat("/nybrogatan23")
+          window.open(path,"_self")
+        }, 1000);
+      } else {
+          $('#nybrogatan-image').css("animation-play-state", "running");
+          setTimeout(function () {
+            let path = window.location.href.slice(0, -2).concat("/nybrogatan23")
+            window.open(path,"_self")
+          }, 500);
+      } 
+    }
 
 
     /** Changes the carousel slide to corresponding navlink when clicked. */
@@ -15,17 +35,27 @@ $(document).ready(function() {
     /** Removes active class from current navlink then add it to the corresponding slide. */
     $('#carouselExampleIndicators').on('slide.bs.carousel', function () {
       for (let i = 0; i < $('.carousel-inner').children().length; i++) {
-          $('#slide-' + i).parent().removeClass('active')
+          $('#slide-' + i).parent().removeClass('active');
       }
       if ($('.carousel-indicators').children().hasClass('active')) {
-          let slideNum = ($('.active').attr('data-slide-to'))
-          $('#slide-' + slideNum).parent().addClass('active')
+          let slideNum = ($('.active').attr('data-slide-to'));
+          $('#slide-' + slideNum).parent().addClass('active');
       }
     })
 
     
     /** Collapses the navbar on click anywhere on the page. */
     $('body').click(function() {
-        $('#navbarSupportedContent').collapse('hide')
+        $('#navbarSupportedContent').collapse('hide');
+    })
+
+
+    $('#slide-2').click(function () {
+      timeOut(true);
+    })
+
+
+    $('#nybrogatan-image').click(function () {
+      timeOut(false);
     })
 });
