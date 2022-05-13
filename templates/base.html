@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <title>OOO Ice Cream</title>
 </head>
 
@@ -18,7 +19,9 @@
 
     <header>
         <nav class="navbar navbar-light">
-            <a class="navbar-brand" href="{% url 'home' %}"><h1>Triple Oh!</h1></a>
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <h1>Triple Oh!</h1>
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="nav-burger-icon"><img src="../static/images/wavy-icon.png" alt="toggle nav menu"></span>
@@ -38,7 +41,7 @@
                         </div>
                     </div>
                 </ul>
-                
+
             </div>
         </nav>
     </header>
@@ -47,10 +50,12 @@
         {% endblock %}
     </main>
     <footer>
-      <div id="footer-container">
-          <span>Follow us </span><a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-      </div>
+        <div id="footer-container">
+            <span>Follow us </span><a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        </div>
     </footer>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHrwP6L0Tvexuz2ZMaAPfoZmKSsfjnaHM&callback=initMap">
+    </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
@@ -62,6 +67,7 @@
     </script>
     <script src="https://kit.fontawesome.com/171d053c1a.js" crossorigin="anonymous"></script>
     <script src="../static/js/script.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

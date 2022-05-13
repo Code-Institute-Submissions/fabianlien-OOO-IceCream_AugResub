@@ -41,8 +41,11 @@
 <section>
   <div class="row">
     <div id="nybro23-text-container" class="col-xl-10 offset-xl-1">
-
+      <p>{{ text_content.content | safe }}</p>
     </div>
   </div>
+</section>
+<section>
+  <div id="google-map"></div>
 </section>
 {% endblock %}

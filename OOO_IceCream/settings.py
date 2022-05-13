@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'colorfield',
     'solo.apps.SoloAppConfig',
+    'django_summernote',
     'WebApp',
     'BookingApp',
 ]

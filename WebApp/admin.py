@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import About, Flavour, MenuPDF, Contact
+from .models import About, Flavour, MenuPDF, Contact, Nybro23Text
+from django_summernote.admin import SummernoteModelAdmin
 
 
 # Register your models here.
@@ -23,6 +24,12 @@ class AdminFlavour(admin.ModelAdmin):
 class AdminContact(admin.ModelAdmin):
 
     list_display = ('name', 'order_ranking', 'email', 'phone_number')
+
+
+@admin.register(Nybro23Text)
+class AdminUpdate(SummernoteModelAdmin):
+
+    summernote_fields = ('content')
 
 
 admin.site.register(About)

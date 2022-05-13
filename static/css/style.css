@@ -440,6 +440,12 @@ nav .active a {
     min-height: 35vh;
 }
 
+#google-map {
+    height: 65vw;
+    max-height: 600px;
+    width: 100%;
+}
+
 @media screen and (min-width: 1201px) {
     #nybro23-image-gallery img {
         border: double 2em rgb(5 103 53);

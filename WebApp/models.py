@@ -73,3 +73,13 @@ class Contact(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+
+class Nybro23Text(SingletonModel):
+    content = models.TextField()
+
+    class Meta:
+        verbose_name_plural = 'Nybrogatan 23 Content'
+
+    def __str__(self):
+        return 'Nybrogatan 23 Content'
