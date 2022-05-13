@@ -1,8 +1,13 @@
 $(document).ready(function() { 
-    $('.carousel').carousel({
-      interval: 6000
+    
+  
+    /** Sets the slide change interval for the carousels */
+    $('#carouselExampleIndicators').carousel({
+      interval: 8000
     })
-
+    $('#nybro23-image-gallery').carousel({
+      interval: 4000
+    })
 
     /** Unpauses zoom animation then navigates to the Nybrogatan23 page after short delay. */
     function timeOut(initialDelay) {
@@ -13,7 +18,7 @@ $(document).ready(function() {
         setTimeout(function () {
           let path = window.location.href.slice(0, -2).concat("/nybrogatan23")
           window.open(path,"_self")
-        }, 1000);
+        },750);
       } else {
           $('#nybrogatan-image').css("animation-play-state", "running");
           setTimeout(function () {

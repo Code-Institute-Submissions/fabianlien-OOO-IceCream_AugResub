@@ -22,4 +22,7 @@ class MainPage(View):
 class Nybrogatan23(View):
 
     def get(self, request):
-        return render(request, 'nybrogatan23.html')
+        pdf_menu = MenuPDF.objects.get(id=1)
+        return render(request, 'nybrogatan23.html', {
+            'pdf_menu': pdf_menu,
+        })

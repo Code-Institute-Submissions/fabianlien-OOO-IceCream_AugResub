@@ -7,7 +7,7 @@
 
 body {
     font-family: Recoleta, sans-serif;
-    background-color: rgb(146, 211, 140);
+    background-color: rgb(250 244 180);
 }
 
 h3 {
@@ -350,7 +350,7 @@ nav .active a {
     object-fit: cover;
     max-width: 100%;
     max-height: 50vh; 
-    animation: zoom-in 0.5s ease forwards;
+    animation: zoom-in 0.5s ease backwards;
     animation-play-state: paused;
 }
 
@@ -420,4 +420,29 @@ nav .active a {
     #contact-cards .contact-card p {
         margin-left: 11.1vw;
     }
+}
+
+/* Nybrogatan 23 page */
+
+#nybro23-image-gallery {
+    border-radius: unset;
+    margin: 0;
+    height: 65vh;
+    width: 100%;
+}
+
+#nybro23-image-gallery img {
+    height: 100%;
+    object-fit: cover;
+}
+
+#nybro23-text-container {
+    min-height: 35vh;
+}
+
+@media screen and (min-width: 1201px) {
+    #nybro23-image-gallery img {
+        border: double 2em rgb(5 103 53);
+    }
+    
 }
