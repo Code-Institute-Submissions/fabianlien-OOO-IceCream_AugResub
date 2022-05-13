@@ -56,15 +56,20 @@ class Flavour(models.Model):
     def __str__(self):
         return f'{self.name}'
 
+
 class Contact(models.Model):
     name = models.CharField(max_length=40)
     phone_number = models.BigIntegerField(unique=True, blank=True)
     email = models.EmailField(unique=True, blank=True)
     address = models.CharField(max_length=60, blank=True)
     image = CloudinaryField('image', default='placeholder')
+    order_ranking = models.IntegerField(default=100, validators=[
+        MaxValueValidator(100),
+        MinValueValidator(1)
+    ])
 
     class Meta:
-        ordering = ['name']
+        ordering = ['order_ranking', 'name']
 
     def __str__(self):
         return f'{self.name}'

@@ -9,8 +9,12 @@ class MainPage(View):
     def get(self, request):
         about = About.objects.get(id=1)
         pdf_menu = MenuPDF.objects.get(id=1)
-        flavour_list = Flavour.objects.order_by('category', 'name')
-        contact_list = Contact.objects.order_by('name')
+        flavour_list = Flavour.objects.order_by(
+            'display_flavour',
+            'order_ranking',
+            'name'
+            )
+        contact_list = Contact.objects.order_by('order_ranking', 'name')
         return render(request, 'index.html', {
             'about': about,
             'flavour_list': flavour_list,
