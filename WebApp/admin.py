@@ -6,8 +6,10 @@ from .models import About, Flavour, MenuPDF, Contact
 @admin.register(Flavour)
 class AdminContent(admin.ModelAdmin):
 
-    list_filter = ('category', 'name', 'allergens')
-    list_display = ('name', 'category', 'allergens')
+    list_filter = ('order_ranking', 'category', 'name', 'allergens')
+    list_display = ('name', 'order_ranking', 'category', 'display_flavour')
+    actions = ['toggle_display']
+
 
 
 admin.site.register(About)

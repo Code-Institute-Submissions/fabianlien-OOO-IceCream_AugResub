@@ -55,6 +55,7 @@
                         <h3>Our Ice Cream:</h3>
                         <div class="row">
                             {% for flavour in flavour_list %}
+                            {% if flavour.display_flavour == 1 %}
                             <div class="card-container col-lg-4">
                                 {% if forloop.counter|divisibleby:2 %}
                                 <div class="card-body card-green">
@@ -68,6 +69,7 @@
                                         <p class="card-text small">Allergens: {{ flavour.allergens }}</p>
                                     </div>
                                 </div>
+                                {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
