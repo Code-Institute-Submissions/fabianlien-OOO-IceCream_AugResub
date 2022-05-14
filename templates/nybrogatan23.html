@@ -2,19 +2,19 @@
 
 {% block nav_content %}
 <li class="nav-item active">
-    <a class="nav-link" href="#" id="nybro-nav-link">Nybrogatan 23</a>
+  <a class="nav-link" href="#" id="nybro-nav-link">Nybrogatan 23</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="{% url 'home' %}">Home</a>
+  <a class="nav-link" href="{% url 'home' %}">Home</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="#">Book a table</a>
+  <a class="nav-link" data-toggle="collapse" href="#collapse-booking">Book a table</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="{{ pdf_menu.pdf.url }}" target="_blank">Download our dessert menu</a>
+  <a class="nav-link" href="{{ pdf_menu.pdf.url }}" target="_blank">Download our dessert menu</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="#">Contact Us</a>
+  <a class="nav-link" href="#">Contact Us</a>
 </li>
 {% endblock %}
 
@@ -33,6 +33,22 @@
           <div class="carousel-item">
             <img src="../static/images/gold-frame-cc0.jpg" class="d-block w-100" alt="...">
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <a id="resveration-btn" class="btn btn-success" data-toggle="collapse" href="#collapse-booking" role="button"
+        aria-expanded="false" aria-controls="collapseExample">
+        Make a Reservation
+      </a>
+      <div class="collapse" id="collapse-booking">
+        <div class="card card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
+          keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
         </div>
       </div>
     </div>
