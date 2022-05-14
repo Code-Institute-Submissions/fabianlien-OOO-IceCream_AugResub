@@ -1,4 +1,4 @@
-/* Fonts */
+/* Fonts & global */
 
 @font-face {
     font-family: Recoleta;
@@ -8,16 +8,38 @@
 body {
     font-family: Recoleta, sans-serif;
     background-color: rgb(250 244 180);
+    text-align: center;
 }
 
 h3 {
     padding-bottom: 1em;
 }
 
+.main-container {
+    min-height: 78vh;
+}
+
+.auth-card {
+    padding: 2em;
+    background-color: rgb(228, 228, 196);
+    border-radius: 3em;
+}
+
 /* Navbar */
 
 #signup-login-logout {
     margin-top: 0;
+}
+
+.user-status {
+    width:100%;
+    text-align: right;
+    padding-right: 2em;
+    height: 2vh;
+}
+
+.user-status a {
+    color:rgb(5 103 53);
 }
 
 body::-webkit-scrollbar {
@@ -128,7 +150,7 @@ nav .active a {
 /* Index page */
 
 .slide-container {
-    height: 80vh;
+    height: 78vh;
     width: 100%;
     margin: 0;
     background: url("../images/triple-oh-banner.png") no-repeat;
