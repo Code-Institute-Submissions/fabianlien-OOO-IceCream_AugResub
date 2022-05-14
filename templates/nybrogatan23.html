@@ -1,21 +1,48 @@
 {% extends "base.html" %}
 
 {% block nav_content %}
-<li class="nav-item active">
-  <a class="nav-link" href="#" id="nybro-nav-link">Nybrogatan 23</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="{% url 'home' %}">Home</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" data-toggle="collapse" href="#collapse-booking">Book a table</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="{{ pdf_menu.pdf.url }}" target="_blank">Download our dessert menu</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="#">Contact Us</a>
-</li>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="nav-burger-icon"><img src="../static/images/wavy-icon.png" alt="toggle nav menu"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <div class="row">
+      <div class="col-2">
+        <div class="logo-container">
+          <img id="logotype" src="../static/images/logotype.png" alt="Triple Oh! logotype">
+        </div>
+      </div>
+      <div class="col-10">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" id="signup-login-logout" href="{% url 'account_logout' %}">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" id="signup-login-logout" href="{% url 'account_login' %}">Login/Register</a>
+        </li>
+        {% endif %}
+        <li class="nav-item active">
+          <a class="nav-link" href="#" id="nybro-nav-link">Nybrogatan 23</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="#collapse-booking">Book a table</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ pdf_menu.pdf.url }}" target="_blank">Download our dessert menu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+      </div>
+    </div>
+  </ul>
+
+</div>
 {% endblock %}
 
 {% block main_content %}

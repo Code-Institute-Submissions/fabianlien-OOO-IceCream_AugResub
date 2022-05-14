@@ -44,15 +44,24 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
     'colorfield',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'solo.apps.SoloAppConfig',
     'django_summernote',
     'WebApp',
     'BookingApp',
 ]
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

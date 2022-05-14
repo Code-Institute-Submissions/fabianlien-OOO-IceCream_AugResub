@@ -1,21 +1,48 @@
 {% extends "base.html" %}
 
 {% block nav_content %}
-<li class="nav-item active">
-    <a class="nav-link" href="#" id="slide-0">About Us<span class="sr-only">(current)</span></a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="#" id="slide-1">Ice cream flavors</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="#" id="slide-2">Nybrogatan 23</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="{{ pdf_menu.pdf.url }}" target="_blank">Download our dessert menu</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="#" id="slide-3">Contact Us</a>
-</li>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="nav-burger-icon"><img src="../static/images/wavy-icon.png" alt="toggle nav menu"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <div class="row">
+            <div class="col-2">
+                <div class="logo-container">
+                    <img id="logotype" src="../static/images/logotype.png" alt="Triple Oh! logotype">
+                </div>
+            </div>
+            <div class="col-10">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" id="signup-login-logout" href="{% url 'account_logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" id="signup-login-logout" href="{% url 'account_login' %}">Login/Register</a>
+                </li>
+                {% endif %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" id="slide-0">About Us<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="slide-1">Ice cream flavors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="slide-2">Nybrogatan 23</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ pdf_menu.pdf.url }}" target="_blank">Download our dessert menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="slide-3">Contact Us</a>
+                </li>
+            </div>
+        </div>
+    </ul>
+
+</div>
 {% endblock %}
 
 {% block main_content %}
@@ -59,9 +86,9 @@
                             <div class="card-container col-lg-4">
                                 {% if forloop.counter|divisibleby:2 %}
                                 <div class="card-body card-green">
-                                {% else %}
-                                <div class="card-body card-pink">
-                                    {% endif %}
+                                    {% else %}
+                                    <div class="card-body card-pink">
+                                        {% endif %}
                                         <div class="color-ball" style="background-color:{{ flavour.color }}"></div>
                                         <p class="card-title">{{ flavour.name }}</p>
                                         <p class="card-subtitle mb-2 text-muted">{{ flavour.category }}</p>
@@ -80,7 +107,9 @@
                             <h3>Visit Nybrogatan 23:</h3>
                             <div class="row">
                                 <div class="col-md-10 offset-md-1">
-                                    <a href="#"><img id="nybrogatan-image" class="zoomTarget" src="../static/images/triple-oh-chalk-board.jpeg" alt="Chalk board with Triple Oh!'s motto."></a>
+                                    <a href="#"><img id="nybrogatan-image" class="zoomTarget"
+                                            src="../static/images/triple-oh-chalk-board.jpeg"
+                                            alt="Chalk board with Triple Oh!'s motto."></a>
                                 </div>
                             </div>
                         </div>
@@ -92,41 +121,41 @@
                             <div class="row">
                                 {% for contact in contacts %}
                                 <div id="contact-cards" class="card-container col-lg-12">
-                                {% if forloop.counter|divisibleby:2 %}
-                                <div class="card-body col-lg-10 card-green contact-card">
-                                {% else %}
-                                <div class="card-body col-lg-10 card-pink contact-card-right offset-lg-2">
-                                    {% endif %}
-                                        {% if "placeholder" in contact.image.url %}
-                                        <div class="color-ball image-ball d-none d-md-inline">
-                                            <img class="contact-image" src="../static/images/logotype.png">
-                                        </div>
+                                    {% if forloop.counter|divisibleby:2 %}
+                                    <div class="card-body col-lg-10 card-green contact-card">
                                         {% else %}
-                                        <div class="color-ball image-ball d-none d-md-inline">
-                                            <img class="contact-image" src="{{ contact.image.url }}">
+                                        <div class="card-body col-lg-10 card-pink contact-card-right offset-lg-2">
+                                            {% endif %}
+                                            {% if "placeholder" in contact.image.url %}
+                                            <div class="color-ball image-ball d-none d-md-inline">
+                                                <img class="contact-image" src="../static/images/logotype.png">
+                                            </div>
+                                            {% else %}
+                                            <div class="color-ball image-ball d-none d-md-inline">
+                                                <img class="contact-image" src="{{ contact.image.url }}">
+                                            </div>
+                                            {% endif %}
+                                            <p class="card-title">{{ contact.name }}</p>
+                                            <p class="card-subtitle mb-2">+46{{ contact.phone_number }}</p>
+                                            <p class="card-subtitle mb-2">{{ contact.address }}</p>
+                                            <br>
+                                            <p class="card-text">{{ contact.email }}</p>
                                         </div>
-                                        {% endif %}
-                                        <p class="card-title">{{ contact.name }}</p>
-                                        <p class="card-subtitle mb-2">+46{{ contact.phone_number }}</p>
-                                        <p class="card-subtitle mb-2">{{ contact.address }}</p>
-                                        <br>
-                                        <p class="card-text">{{ contact.email }}</p>
                                     </div>
+                                    {% endfor %}
                                 </div>
-                                {% endfor %}
                             </div>
                         </div>
                     </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
             </div>
         </div>
-    </div>
-    {% endblock %}
+        {% endblock %}

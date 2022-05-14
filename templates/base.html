@@ -22,27 +22,13 @@
             <a class="navbar-brand" href="{% url 'home' %}">
                 <h1>Triple Oh!</h1>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="nav-burger-icon"><img src="../static/images/wavy-icon.png" alt="toggle nav menu"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <div class="row">
-                        <div class="col-2">
-                            <div class="logo-container">
-                                <img id="logotype" src="../static/images/logotype.png" alt="Triple Oh! logotype">
-                            </div>
-                        </div>
-                        <div class="col-10">
-                            {% block nav_content %}
-                            {% endblock %}
-                        </div>
-                    </div>
-                </ul>
-
+            {% if user.is_authenticated %}
+            <div class="user-status">
+                <p>Signed in as {{ user }}.</p>
             </div>
+            {% endif %}
+            {% block nav_content %}
+            {% endblock %}
         </nav>
     </header>
     <main>
@@ -54,7 +40,8 @@
             <span>Follow us </span><a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
         </div>
     </footer>
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHrwP6L0Tvexuz2ZMaAPfoZmKSsfjnaHM&callback=initMap">
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHrwP6L0Tvexuz2ZMaAPfoZmKSsfjnaHM&callback=initMap">
     </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
