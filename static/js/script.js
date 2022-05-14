@@ -1,5 +1,6 @@
 $(document).ready(function () {
   /** Initiates google maps API */
+
   function initMap() {
     const Nybrogatan23 = {
       lat: 59.335502546345275,
@@ -14,7 +15,6 @@ $(document).ready(function () {
       position: Nybrogatan23,
       map: map,
     });
-  
   }
 
   window.initMap = initMap;

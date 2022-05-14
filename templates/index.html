@@ -65,7 +65,7 @@
                                 <div class="row">
                                     <div class="col-5 d-none d-md-inline">
                                         <div id="landing-slide-image-border">
-                                            <img id="landing-slide-image" src="{{ about.image.url }}">
+                                            <img id="landing-slide-image" src="{{ about.image.url }}" alt="{{ about.image_alternative_text }}">
                                         </div>
                                     </div>
                                     <div class="col-md-6 offset-md-1">
@@ -128,11 +128,11 @@
                                             {% endif %}
                                             {% if "placeholder" in contact.image.url %}
                                             <div class="color-ball image-ball d-none d-md-inline">
-                                                <img class="contact-image" src="../static/images/logotype.png">
+                                                <img class="contact-image" src="../static/images/logotype.png" alt="Default profile picture">
                                             </div>
                                             {% else %}
                                             <div class="color-ball image-ball d-none d-md-inline">
-                                                <img class="contact-image" src="{{ contact.image.url }}">
+                                                <img class="contact-image" src="{{ contact.image.url }}" alt="Profile picture">
                                             </div>
                                             {% endif %}
                                             <p class="card-title">{{ contact.name }}</p>

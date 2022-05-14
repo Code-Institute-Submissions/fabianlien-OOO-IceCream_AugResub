@@ -51,15 +51,11 @@
     <div class="col-xl-10 offset-xl-1 col-xxl-8 offset-xxl-2">
       <div id="nybro23-image-gallery" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="../static/images/store-front.jpg" class="d-block w-100" alt="...">
+          {% for image in images %}
+          <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
+             <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ image.image_alternative_text }}">
           </div>
-          <div class="carousel-item">
-            <img src="../static/images/logotype.png" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="../static/images/gold-frame-cc0.jpg" class="d-block w-100" alt="...">
-          </div>
+          {% endfor %}
         </div>
       </div>
     </div>

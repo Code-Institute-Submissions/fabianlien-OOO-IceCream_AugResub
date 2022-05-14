@@ -8,7 +8,8 @@ from django.contrib.auth.models import User
 
 DISPLAY_FLAVOUR = ((0, "Hidden"), (1, "Display"))
 
-# Create your models here.
+
+# Admin Content Management Models:
 class About(SingletonModel):
     title = models.CharField(max_length=30)
     content = models.TextField(max_length=120)
@@ -17,6 +18,7 @@ class About(SingletonModel):
         default=None,
         validators=[FileExtensionValidator(allowed_extensions=["png", "jpg"])]
         )
+    image_alternative_text = models.TextField(max_length=120, blank=True)
 
     class Meta:
         verbose_name_plural = 'About Statement'
@@ -75,6 +77,29 @@ class Contact(models.Model):
         return f'{self.name}'
 
 
+class Nybro23Image(models.Model):
+    name = models.CharField(max_length=40, blank=True)
+    image = CloudinaryField(
+        'image',
+        default=None,
+        validators=[FileExtensionValidator(allowed_extensions=["png", "jpg"])]
+        )
+    image_alternative_text = models.TextField(max_length=120, blank=True)
+    order_ranking = models.IntegerField(default=100, validators=[
+        MaxValueValidator(100),
+        MinValueValidator(1)
+    ])
+
+    class Meta:
+        ordering = ['order_ranking']
+
+    def __str__(self):
+        if self.name:
+            return f'{self.name}'
+        else:
+            return "Nybrogatan 23 Gallery Image"
+
+
 class Nybro23Text(SingletonModel):
     content = models.TextField()
 
@@ -83,3 +108,14 @@ class Nybro23Text(SingletonModel):
 
     def __str__(self):
         return 'Nybrogatan 23 Content'
+
+
+# User CRUD Models:
+class Comment(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    flavour = models.ForeignKey(Flavour, on_delete=models.CASCADE)
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return 'author'

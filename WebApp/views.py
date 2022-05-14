@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import generic, View
-from .models import Flavour, About, MenuPDF, Contact, Nybro23Text
+from .models import *
 
 
 # Create your views here.
@@ -28,7 +28,9 @@ class Nybrogatan23(View):
     def get(self, request):
         pdf_menu = MenuPDF.objects.get(id=1)
         text_content = Nybro23Text.objects.get(id=1)
+        image_list = Nybro23Image.objects.order_by('order_ranking', 'name')
         return render(request, 'nybrogatan23.html', {
             'pdf_menu': pdf_menu,
-            'text_content': text_content
+            'text_content': text_content,
+            'images': image_list
         })

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import About, Flavour, MenuPDF, Contact, Nybro23Text
+from .models import About, Flavour, MenuPDF, Contact, Nybro23Text, Nybro23Image
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -34,3 +34,4 @@ class AdminUpdate(SummernoteModelAdmin):
 
 admin.site.register(About)
 admin.site.register(MenuPDF)
+admin.site.register(Nybro23Image)
