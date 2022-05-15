@@ -27,5 +27,5 @@ class Reservation(models.Model):
 
 class ReservationAvail(models.Model):
 
-    STATUS = (())
-    restaurant_open = models.IntegerField(default=1, choices=STATUS)
+    STATUS = ((0, "Closed"), (1, "Open"))
+    restaurant_status = models.IntegerField(default=1, choices=STATUS)
