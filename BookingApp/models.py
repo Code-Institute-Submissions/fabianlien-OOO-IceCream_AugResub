@@ -1,6 +1,5 @@
 from django.db import models
 
-
 # Create your models here.
 class Reservation(models.Model):
     AVAILABLE_GROUPS = (
@@ -19,9 +18,14 @@ class Reservation(models.Model):
     party_size = models.IntegerField(choices=AVAILABLE_GROUPS)
     date = models.DateField()
     time = models.TimeField()
-    duration = models.DurationField(default=3)
+    duration = models.IntegerField(default=3)
     message = models.TextField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'{self.name}, {self.party_size} prs.'
+
+class ReservationAvail(models.Model):
+
+    STATUS = (())
+    restaurant_open = models.IntegerField(default=1, choices=STATUS)

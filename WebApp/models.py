@@ -111,11 +111,11 @@ class Nybro23Text(SingletonModel):
 
 
 # User CRUD Models:
-class Comment(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-    flavour = models.ForeignKey(Flavour, on_delete=models.CASCADE)
-    body = models.TextField()
-    created = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return 'author'
+#class Comment(models.Model):
+#    author = models.ForeignKey(User, on_delete=models.CASCADE)
+#    flavour = models.ForeignKey(Flavour, on_delete=models.CASCADE)
+#    body = models.TextField()
+#    created = models.DateTimeField(auto_now_add=True)
+#
+#   def __str__(self):
+#        return 'author'
