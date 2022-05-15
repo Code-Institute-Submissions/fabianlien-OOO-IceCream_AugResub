@@ -34,3 +34,4 @@ class Nybrogatan23(View):
             'text_content': text_content,
             'images': image_list
         })
+
