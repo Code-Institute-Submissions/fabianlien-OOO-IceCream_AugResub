@@ -19,6 +19,7 @@ class Reservation(models.Model):
     party_size = models.IntegerField(choices=AVAILABLE_GROUPS)
     date = models.DateField()
     time = models.TimeField()
+    duration = models.DurationField(default=3)
     message = models.TextField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
 
