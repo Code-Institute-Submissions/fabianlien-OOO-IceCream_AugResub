@@ -47,7 +47,7 @@
 {% endblock %}
 
 {% block main_content %}
-<div class="row slide-container no-gutters">
+<div class="row slide-container no-gutters" style="background:url({% static 'images/triple-oh-banner.png' %}) no-repeat;">
     <div class="col-xl-10 offset-xl-1">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -129,7 +129,7 @@
                                             {% endif %}
                                             {% if "placeholder" in contact.image.url %}
                                             <div class="color-ball image-ball d-none d-md-inline">
-                                                <img class="contact-image" src="../static/images/logotype.png" alt="Default profile picture">
+                                                <img class="contact-image" src="{% static 'images/logotype.png' %}" alt="Default profile picture">
                                             </div>
                                             {% else %}
                                             <div class="color-ball image-ball d-none d-md-inline">
