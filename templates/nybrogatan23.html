@@ -72,7 +72,7 @@
       <div class="collapse" id="collapse-booking">
         <div class="card card-body">
           {% if user.is_authenticated %}
-          <iframe src="{% url 'booking' %}"></iframe>
+          <iframe src="{% url 'booking' %}">Your browser is not compatible with the html elements required to show the booking formula. Please contact the restaurant directly.</iframe>
           {% else %}
           <div>
             <p>You need to be be signed in to make a reservation:</p>
@@ -89,6 +89,9 @@
     <div id="nybro23-text-container" class="col-xl-10 offset-xl-1">
       <p>{{ text_content.content | safe }}</p>
     </div>
+  </div>
+  <div class="row">
+    <h3>Contact Us:</h3>
   </div>
 </section>
 <section>

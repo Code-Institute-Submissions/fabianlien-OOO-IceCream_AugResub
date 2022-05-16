@@ -23,6 +23,7 @@ h3 {
     border-radius: 3em;
 }
 
+
 /* Navbar */
 
 #signup-login-logout {
@@ -125,6 +126,7 @@ nav .active a {
     }
 }
 
+
 /* Footer */
 
 #footer-container {
@@ -144,6 +146,7 @@ nav .active a {
 #footer-container i:hover {
     color: rgb(248 186 166);
 }
+
 
 /* Index page */
 
@@ -230,6 +233,7 @@ nav .active a {
 
 }
 
+
 /* About slide */
 
 .big-card {
@@ -280,6 +284,7 @@ nav .active a {
         font-size: 180%;
     }
 }
+
 
 /* Flavour cards slide */
 
@@ -366,6 +371,7 @@ nav .active a {
     }
 }
 
+
 /* Visit Nybrogatan slide */
 
 #nybrogatan-image {
@@ -374,7 +380,7 @@ nav .active a {
     object-fit: cover;
     max-width: 100%;
     max-height: 50vh; 
-    animation: zoom-in 0.5s ease backwards;
+    animation: zoom-in 1s ease backwards;
     animation-play-state: paused;
 }
 
@@ -384,12 +390,16 @@ nav .active a {
 
   @keyframes zoom-in {
     0% {
-      transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(1.7, 1.7);
     }
     100% {
-      transform: scale(1.7, 1.7);
+        transform: scale(1.7, 1.7);
     }
   }
+
 
 /* Contact cards slide */
 
@@ -446,6 +456,7 @@ nav .active a {
     }
 }
 
+
 /* Nybrogatan 23 page */
 
 #nybro23-image-gallery {
@@ -488,6 +499,15 @@ nav .active a {
     height: fit-content;
     border: none;
     background-color: rgb(228, 228, 196);
+    font-size: larger;
+}
+
+#collapse-booking .card a {
+    color: rgb(5 103 53);
+}
+
+#collapse-booking iframe {
+    height: 500px;
 }
 
 @media screen and (max-width: 767px) {
@@ -506,4 +526,18 @@ nav .active a {
         width: 30%;
         margin: -6em 35% 4em 35%;
     }
+}
+
+
+
+/* AllAuth templates */
+
+.errorlist li {
+    list-style-type: none;
+    width: fit-content;
+    margin: 0 auto;
+    color: white;
+    background-color: rgb(165, 4, 4);
+    padding: 0.5em;
+    border-radius: 0.25em;
 }
