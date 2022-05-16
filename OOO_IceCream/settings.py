@@ -56,9 +56,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'solo.apps.SoloAppConfig',
     'django_summernote',
+    'crispy_forms',
     'WebApp',
     'BookingApp',
-    'BookingApp.reservation_function'
 ]
 
 SITE_ID = 1

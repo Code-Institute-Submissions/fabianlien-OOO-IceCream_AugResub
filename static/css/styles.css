@@ -508,6 +508,7 @@ nav .active a {
 
 #collapse-booking iframe {
     height: 500px;
+    border: none;
 }
 
 @media screen and (max-width: 767px) {
@@ -528,7 +529,21 @@ nav .active a {
     }
 }
 
+/* Booking page */
 
+#booking-body {
+    background-color: rgb(228, 228, 196);
+}
+
+#res-form-container {
+    margin: 0 auto;
+    width: fit-content;
+    text-align: left;
+}
+
+form {
+    background-color: rgb(228, 228, 196);
+}
 
 /* AllAuth templates */
 

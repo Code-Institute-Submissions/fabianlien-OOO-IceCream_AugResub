@@ -26,12 +26,12 @@ class Reservation(models.Model):
     email = models.EmailField()
     phone_number = models.BigIntegerField(blank=True)
     party_size = models.IntegerField(choices=AVAILABLE_GROUPS)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    table = models.ForeignKey(ReservationAvail, on_delete=models.CASCADE)
     date_and_time = models.DateTimeField()
-    end_reservation = datetime.timedelta(seconds=10800)
     message = models.TextField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
+#   end_reservation = datetime.timedelta(seconds=10800)
+#   user = models.ForeignKey(User, on_delete=models.CASCADE)
+#   table = models.ForeignKey(ReservationAvail, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.name} has made a reservation for {self.party_size} people on {self.date_and_time}.'
+        return f'{self.name}'
