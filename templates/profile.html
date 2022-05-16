@@ -1,3 +1,19 @@
 {% extends 'base.html' %}
-{% load static %}
 
+{% block main_content %}
+
+{% if user.is_authenticated %}
+
+<h2>{% block title %} Profile {% endblock %}</h2>
+<p>Username: {{ user }}</p>
+<p>Email : {{ user.email }}</p>
+
+{% else %}
+
+<p>You need to log in to view your profile.</p>
+<h2><a href="{% url 'account_login' %}">Sign In / Register</a></h2>
+
+{% endif %}
+
+
+{% endblock %}

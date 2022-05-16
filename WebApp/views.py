@@ -37,3 +37,8 @@ class Nybrogatan23(View):
             'contacts': contact_list
         })
 
+
+def Profile(request):
+    return render(request, 'profile.html', {
+        'user': request.user
+    })
