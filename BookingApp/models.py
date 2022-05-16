@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -28,7 +29,7 @@ class Reservation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     table = models.ForeignKey(ReservationAvail, on_delete=models.CASCADE)
     date_and_time = models.DateTimeField()
-    end_reservation = models.DateTimeField()
+    end_reservation = datetime.timedelta(seconds=10800)
     message = models.TextField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
 

@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'WebApp',
     'BookingApp',
+    'BookingApp.reservation_function'
 ]
 
 SITE_ID = 1
