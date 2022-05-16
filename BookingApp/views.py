@@ -11,6 +11,7 @@ def ReservationView(request):
     form = ReservationForm(request.POST or None)
     if form.is_valid():
         form.save()
+        form = ReservationForm()
 
     return render(request, 'booking.html', {
         'form': form

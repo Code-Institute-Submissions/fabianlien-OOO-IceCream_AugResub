@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import generic, View
 from .models import *
+from BookingApp.models import Reservation
 
 
 # Create your views here.
@@ -38,7 +39,10 @@ class Nybrogatan23(View):
         })
 
 
-def Profile(request):
-    return render(request, 'profile.html', {
-        'user': request.user
-    })
+class Profile(View):
+
+    def get(self, request):
+        return render(request, 'profile.html', {
+            'user': request.user
+            #'reservations': the users instances of reservations if any exist.
+        })

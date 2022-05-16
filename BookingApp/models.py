@@ -29,6 +29,7 @@ class Reservation(models.Model):
     date_and_time = models.DateTimeField()
     message = models.TextField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
+    user = User.username
 #   end_reservation = datetime.timedelta(seconds=10800)
 #   user = models.ForeignKey(User, on_delete=models.CASCADE)
 #   table = models.ForeignKey(ReservationAvail, on_delete=models.CASCADE)
