@@ -506,9 +506,23 @@ nav .active a {
     color: rgb(5 103 53);
 }
 
+.contact-card-nybro23 {
+    background-color: rgb(5 103 53);
+    color: rgb(228, 228, 196);
+    width: 100%;
+}
+
 #collapse-booking iframe {
     height: 500px;
     border: none;
+}
+
+#contact-cards-nybro23 {
+    width: 100%;
+}
+
+#contact-nybro23 {
+    width: 100%;
 }
 
 @media screen and (max-width: 767px) {

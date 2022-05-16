@@ -72,7 +72,8 @@
       <div class="collapse" id="collapse-booking">
         <div class="card card-body">
           {% if user.is_authenticated %}
-          <iframe src="{% url 'booking' %}">Your browser is not compatible with the html elements required to show the booking formula. Please contact the restaurant directly.</iframe>
+          <iframe src="{% url 'booking' %}">Your browser is not compatible with the html elements required to show the
+            booking formula. Please contact the restaurant directly.</iframe>
           {% else %}
           <div>
             <p>You need to be be signed in to make a reservation:</p>
@@ -90,9 +91,37 @@
       <p>{{ text_content.content | safe }}</p>
     </div>
   </div>
-  <div class="row">
-    <h3>Contact Us:</h3>
+  <div id="nybro-23-contact-us" class="row">
+    <div class="col-12">
+      <h3>Contact Us:</h3>
+    </div>
   </div>
+    <div class="row">
+      {% for contact in contacts %}
+      <div class="contact-container col-12">
+        {% if forloop.counter|divisibleby:2 %}
+        <div class="card-body col-12 card-green m-none contact-card">
+        {% else %}
+        <div class="card-body col-12 card-pink contact-card-right">
+            {% endif %}
+            {% if "placeholder" in contact.image.url %}
+            <div class="color-ball image-ball d-none d-md-inline">
+              <img class="contact-image" src="{% static 'images/logotype.png' %}" alt="Default profile picture">
+            </div>
+            {% else %}
+            <div class="color-ball image-ball d-none d-md-inline">
+              <img class="contact-image" src="{{ contact.image.url }}" alt="Profile picture">
+            </div>
+            {% endif %}
+            <p class="card-title">{{ contact.name }}</p>
+            <p class="card-subtitle mb-2">+46{{ contact.phone_number }}</p>
+            <p class="card-subtitle mb-2">{{ contact.address }}</p>
+            <br>
+            <p class="card-text">{{ contact.email }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
 </section>
 <section>
   <div id="google-map"></div>
