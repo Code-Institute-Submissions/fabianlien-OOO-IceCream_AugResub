@@ -22,3 +22,8 @@ Outline below are the user stories for the project. Due to a very limited timeli
   - As a site Admin, I can make alterations to specific bookings or remove them so that I can accomodate a customers specific request.
   - As a Site Admin, I can get the personal details of a specific booking so that I can contact the booker if need be.
   - As a site Admin, I can view all my bookings for a specific day so that I can prepare the restaurant.
+  - As a registered user, I can view my profile page so that I can see my account details and my reservation history.
+
+* Front-End Interaction:
+  - As a site user, I can easily change the content on the main page so that I quickly find the information im looking for.
+  - As a site user, I can click a link so that I can download a restaurant menu.

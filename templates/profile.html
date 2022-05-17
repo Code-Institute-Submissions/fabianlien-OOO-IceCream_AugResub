@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% block main_content %}
 
 <div class="main-container">
@@ -16,14 +16,23 @@
         <p>Time and date: {{ reservation.date_and_time }}</p>
         <p>Party Size: {{ reservation.party_size }}</p>
         <p>Your Message to the Restaurant: {{ reservation.message }}</p>
+        <p>Change your message:</p>
+        <form method="POST" action="{% url 'edit_reservation' reservation.pk %}">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <input type="submit" value="Update Message"/>
+        </form>
+    </div>
+    <div class="res-delete">
+        <a href="{% url 'reservation_delete' reservation.pk %}">
+            Delete Reservation
+        </a>
     </div>
     {% endfor %}
 
     {% else %}
-
     <p>You need to log in to view your profile.</p>
     <h2><a href="{% url 'account_login' %}">Sign In / Register</a></h2>
-
     {% endif %}
 </div>
 {% endblock %}

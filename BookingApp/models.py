@@ -24,7 +24,7 @@ class Reservation(models.Model):
     )
     name = models.CharField(max_length=30)
     email = models.EmailField()
-    phone_number = models.BigIntegerField(blank=True)
+    phone_number = models.BigIntegerField(blank=True, null=True)
     party_size = models.IntegerField(choices=AVAILABLE_GROUPS)
     date_and_time = models.DateTimeField()
     message = models.TextField(max_length=200)

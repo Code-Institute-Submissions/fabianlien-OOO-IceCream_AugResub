@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import ReservationForm
 from .models import Reservation
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 
 # Create your views here.
@@ -20,3 +21,12 @@ def ReservationView(request):
     return render(request, 'booking.html', {
         'form': form
     })
+
+
+@login_required(login_url='login')
+def ReservationDeleteView(request, pk):
+    reservation = Reservation.objects.get(pk=pk)
+    reservation.delete()
+    messages.success(
+        request, 'Your reservation has been deleted!')
+    return redirect('profile')
