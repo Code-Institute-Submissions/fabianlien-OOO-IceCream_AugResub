@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views import generic, View
 from .models import *
 from BookingApp.models import Reservation
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -42,7 +43,9 @@ class Nybrogatan23(View):
 class Profile(View):
 
     def get(self, request):
+        user = User.objects.get(username=request.user.username)
+        user_reservations = Reservation.objects.filter(user=user)
         return render(request, 'profile.html', {
-            'user': request.user
-            #'reservations': the users instances of reservations if any exist.
+            'user': user,
+            'reservations': user_reservations,
         })

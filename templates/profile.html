@@ -6,7 +6,11 @@
 
 <h2>{% block title %} Profile {% endblock %}</h2>
 <p>Username: {{ user }}</p>
-<p>Email : {{ user.email }}</p>
+<p>Email: {{ user.email }}</p>
+<p>Reservations: </p>
+{% for reservation in reservations %}
+<p>{{ reservation }}</p>
+{% endfor %}
 
 {% else %}
 
