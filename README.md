@@ -7,4 +7,18 @@ Previously, OOO's online pressence has only extended to a single Instagram accou
 ## User Experience
 
 ### User Stories
-For this project I make use of the "agile" method's "User stories" 
+Outline below are the user stories for the project. Due to a very limited timeline not all stories were completed dy the project deadline.
+
+#### Completed User Stories:
+* Admin Content Management System:
+  - As a site Admin, I can upload a new pdf file, replacing the old one so that the site users can download the latest menu from the webpage.
+  - As a site Admin, I can login to an admin page so that I can easily update the content on a selected webpage.
+  - As a site Admin, I can use a toggle function so that I choose which ice cream flavors to display to the user.
+  - As a site Admin, I can type and style text content into a field so that the text content on a the location page is updated automatically.
+
+* Reservations:
+  - As a site user, I can book a table so that I can visit the restaurant with a garuanteed seat.
+  - As a site user, I can select how many people i want to book a table for so that i can visit the restaurant with a group.
+  - As a site Admin, I can make alterations to specific bookings or remove them so that I can accomodate a customers specific request.
+  - As a Site Admin, I can get the personal details of a specific booking so that I can contact the booker if need be.
+  - As a site Admin, I can view all my bookings for a specific day so that I can prepare the restaurant.

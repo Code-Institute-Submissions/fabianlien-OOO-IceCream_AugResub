@@ -158,6 +158,18 @@ nav .active a {
     background-position: center;
 }
 
+.carousel-angle-prev {
+    font-size: 400%;
+    color: rgb(5 103 53);
+    margin-left: -70%;
+}
+
+.carousel-angle-next {
+    font-size: 400%;
+    color: rgb(5 103 53);
+    margin-right: -70%;
+}
+
 .carousel-item {
     position: relative;
     z-index: 1;
@@ -578,4 +590,11 @@ form {
     background-color: rgb(165, 4, 4);
     padding: 0.5em;
     border-radius: 0.25em;
+}
+
+/* Profile page */
+
+.profile-card {
+    background-color: rgb(5 103 53);
+    color: white;
 }
