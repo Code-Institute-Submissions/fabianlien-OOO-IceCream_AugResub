@@ -1,9 +1,6 @@
-from django.shortcuts import render, get_object_or_404
-from django.views import generic, View
+from django.shortcuts import render
+from django.views import View
 from .models import *
-from BookingApp.models import Reservation
-from django.contrib.auth.models import User
-from .forms import ProfileForm
 
 
 # Create your views here.
@@ -41,33 +38,3 @@ class Nybrogatan23(View):
             'images': image_list,
             'contacts': contact_list
         })
-
-
-class Profile(View):
-
-    def get(self, request):
-        user = User.objects.get(username=request.user.username)
-        user_reservations = Reservation.objects.filter(user=user)
-        return render(request, 'profile.html', {
-            'user': user,
-            'reservations': user_reservations,
-            'form': ProfileForm,
-        })
-
-    def post(self, request, pk):
-        user = User.objects.get(username=request.user.username)
-        user_reservations = Reservation.objects.filter(user=user)
-        user_reservation = Reservation.objects.get(pk=pk)
-        profile_form = ProfileForm(request.POST)
-        if profile_form.is_valid():
-            user_reservation.message=request.POST['message']
-            user_reservation.save()
-        else:
-            profile_form = ProfileForm()
-
-        return render(request, 'profile.html', {
-            'user': user,
-            'reservations': user_reservations,
-            'form': ProfileForm,
-        })
-

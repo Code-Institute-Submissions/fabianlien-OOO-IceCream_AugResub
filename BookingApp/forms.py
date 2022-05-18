@@ -13,3 +13,9 @@ class ReservationForm(forms.ModelForm):
             'phone_number',
             'message'
         ]
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Reservation
+        fields = ('message',)
