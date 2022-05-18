@@ -3,7 +3,6 @@ from .models import About, Flavour, MenuPDF, Contact, Nybro23Text, Nybro23Image
 from django_summernote.admin import SummernoteModelAdmin
 
 
-# Register your models here.
 @admin.register(Flavour)
 class AdminFlavour(admin.ModelAdmin):
 

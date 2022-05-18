@@ -95,13 +95,12 @@
     </div>
   </div>
   <div id="nybro-23-contact-us" class="row">
-    <div class="col-12">
-      <h3>Contact Us:</h3>
+    <div class="col">
+      <h3 id="contact-us">Contact Us:</h3>
     </div>
   </div>
     <div class="row">
       {% for contact in contacts %}
-      <div class="contact-container col-12">
         {% if forloop.counter|divisibleby:2 %}
         <div class="card-body col-12 card-green m-none contact-card">
         {% else %}
