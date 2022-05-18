@@ -17,12 +17,14 @@ class MainPage(View):
             'order_ranking',
             'name'
             )
+        nybrogatan23_framed_image = Nybro23Image.objects.get(order_ranking=1)
         contact_list = Contact.objects.order_by('order_ranking', 'name')
         return render(request, 'index.html', {
             'about': about,
             'flavour_list': flavour_list,
             'pdf_menu': pdf_menu,
-            'contacts': contact_list
+            'contacts': contact_list,
+            'nybrogatan23_framed': nybrogatan23_framed_image
             })
 
 

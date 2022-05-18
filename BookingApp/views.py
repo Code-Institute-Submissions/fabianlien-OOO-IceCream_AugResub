@@ -17,6 +17,8 @@ def ReservationView(request):
         reservation.user = user
         reservation.save()
         form = ReservationForm()
+        messages.success(
+            request, 'Your request has been registered, the restaurant will email you to confirm!')
 
     return render(request, 'booking.html', {
         'form': form

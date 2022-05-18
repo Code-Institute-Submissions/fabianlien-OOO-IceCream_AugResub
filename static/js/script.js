@@ -68,11 +68,6 @@ $(document).ready(function () {
   })
 
 
-  $('#res-form').submit(function () {
-    alert("Your request has been sent. You will recieve an email if your reservation request is accepted.")
-  })
-
-
   /** Collapses the navbar on click anywhere on the page. */
   $('body').click(function () {
     $('#navbarSupportedContent').collapse('hide');
@@ -87,4 +82,11 @@ $(document).ready(function () {
   $('#nybrogatan-image').click(function () {
     timeOut(false);
   })
+
+
+  /** Removes alert messages automatically */
+  setTimeout(function () {
+    $('.alert').alert('close')
+}, 4000);
 });
+
