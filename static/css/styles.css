@@ -592,7 +592,15 @@ form {
 
 /* AllAuth templates */
 
-.errorlist li {
+.alert-block {
+    position: unset;
+}
+
+.alert-block ul {
+    padding-left: 0;
+}
+
+.alert-block li {
     list-style-type: none;
     width: fit-content;
     margin: 0 auto;

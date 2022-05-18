@@ -87,6 +87,6 @@ $(document).ready(function () {
   /** Removes alert messages automatically */
   setTimeout(function () {
     $('.alert').alert('close')
-}, 4000);
+}, 6000);
 });
 

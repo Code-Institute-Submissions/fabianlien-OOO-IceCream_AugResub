@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
-from .forms import ReservationForm
-from .models import Reservation
 from django.views import View
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .forms import ProfileForm
+from .forms import ProfileForm, ReservationForm
+from .models import Reservation
 
 
 # Create your views here.
@@ -65,3 +64,4 @@ def ReservationDeleteView(request, pk):
     messages.success(
         request, 'Your reservation has been deleted!')
     return redirect('profile')
+
