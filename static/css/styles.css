@@ -9,6 +9,11 @@ body {
     text-align: center;
 }
 
+.animated-background {
+    background: url("../images/Infinity-3840x2160-min.jpg") no-repeat center;
+    background-size: cover;
+}
+
 h3 {
     padding-bottom: 1em;
 }
@@ -164,8 +169,6 @@ nav .active a {
     height: 78vh;
     width: 100%;
     margin: 0;
-    background: url("../images/triple-oh-banner.png") no-repeat;
-    background-position: center;
 }
 
 .carousel-angle-prev {
@@ -517,10 +520,14 @@ nav .active a {
     border: none;
 }
 
+#collapse-booking {
+    background-color: rgb(5 103 53);
+}
+
 #collapse-booking .card {
     height: fit-content;
     border: none;
-    background-color: rgb(228, 228, 196);
+    background-color: rgb(5 103 53);
     font-size: larger;
 }
 
@@ -535,7 +542,7 @@ nav .active a {
 }
 
 #collapse-booking iframe {
-    height: 650px;
+    height: 620px;
     border: none;
 }
 
@@ -568,7 +575,7 @@ nav .active a {
 /* Booking page */
 
 #booking-body {
-    background-color: rgb(228, 228, 196);
+    background-color: rgb(5 103 53);
 }
 
 #res-form-container {
@@ -578,7 +585,7 @@ nav .active a {
 }
 
 form {
-    background-color: rgb(228, 228, 196);
+    color: white;
 }
 
 .request-confirmation {
@@ -612,7 +619,90 @@ form {
 
 /* Profile page */
 
+.profile-banner {
+    background-color: rgb(5 103 53);
+    color: white;
+}
+
 .profile-card {
     background-color: rgb(5 103 53);
     color: white;
+    margin: 2em auto;
+}
+
+.profile-card h4 {
+    padding-top: 2em;
+}
+
+.profile-card h4 strong {
+    letter-spacing: 2px;
+}
+
+.res-form-container {
+    margin-top: 2em;
+}
+
+.res-info-container p {
+    overflow: hidden;
+
+}
+
+#id_message {
+    border-radius: 1em;
+    height: 10vh;
+    width: 60%;
+    border: none;
+}
+
+#update-msg {
+    margin-bottom: 1em;
+}
+
+.res-delete a {
+    position: absolute;
+    width: fit-content;
+    top: 0;
+    right: 1.5em;
+    text-decoration: none;
+    margin-top: 1em;
+    margin-left: 10%;
+    text-align: left;
+    color: rgb(248 186 166)
+}
+
+.res-delete:hover a {
+    color: red;
+}
+
+
+
+@media screen and (min-width: 993px) {
+    .profile-card {
+        border-radius: 2em;
+    }
+
+    .res-info-container h5 {
+        padding-bottom: 1em;
+    }
+
+    .res-info-container p {
+        text-align: left;
+    }
+
+    #id_message {
+        max-height: fit-content;
+        height: 100%;
+        width: 94%;
+        margin-left: 5%;
+    }
+
+    #div_id_message {
+        margin-top: 1em;
+    }
+
+    .res-delete a {
+        top: unset;
+        bottom: 0.25em;
+        left: 1em;
+    }
 }

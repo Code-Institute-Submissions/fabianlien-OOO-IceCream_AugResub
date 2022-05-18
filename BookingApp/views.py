@@ -7,7 +7,6 @@ from .forms import ProfileForm, ReservationForm
 from .models import Reservation
 
 
-# Create your views here.
 class Profile(View):
 
     def get(self, request):
@@ -21,7 +20,7 @@ class Profile(View):
 
     def post(self, request, pk):
         user = User.objects.get(username=request.user.username)
-        user_reservations = Reservation.objects.filter(user=user)
+        user_reservations = Reservation.objects.filter(user=user).order_by('date_and_time')
         user_reservation = Reservation.objects.get(pk=pk)
         profile_form = ProfileForm(request.POST)
         if profile_form.is_valid():
@@ -64,4 +63,3 @@ def ReservationDeleteView(request, pk):
     messages.success(
         request, 'Your reservation has been deleted!')
     return redirect('profile')
-

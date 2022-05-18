@@ -17,14 +17,14 @@
             <div class="col-10">
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" id="signup-login-logout" href="{% url 'account_logout' %}">Logout</a>
+                    <a class="nav-link" id="signup-login-logout" href="{% url 'account_logout' %}">Sign Out</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'profile' %}">View Reservations</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" id="signup-login-logout" href="{% url 'account_login' %}">Login/Register</a>
+                    <a class="nav-link" id="signup-login-logout" href="{% url 'account_login' %}">Sign In/Register</a>
                 </li>
                 {% endif %}
                 <li class="nav-item active">
@@ -50,7 +50,7 @@
 {% endblock %}
 
 {% block main_content %}
-<div class="row slide-container no-gutters" style="background:url({% static 'images/triple-oh-banner.png' %}) no-repeat cover;">
+<div class="row slide-container no-gutters animated-background" style="background:url({% static 'images/Infinity-3840x2160-min.jpg' %}) no-repeat cover;">
     <div class="col-xl-10 offset-xl-1">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">

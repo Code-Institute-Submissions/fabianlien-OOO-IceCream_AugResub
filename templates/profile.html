@@ -2,33 +2,47 @@
 {% load crispy_forms_tags %}
 {% block main_content %}
 
-<div class="main-container">
+<div class="main-container animated-background" >
     {% if user.is_authenticated %}
-    <div class="profile-card">
-        <h2>User Info:</h2>
-        <p>Username: {{ user }}</p>
-        <p>Email: {{ user.email }}</p>
-        <p>Your reservations: </p>
+    <div class="profile-banner">
+        <br>
+        <h2>{{ user }}</h2>
+        <p>Account email: {{ user.email }}</p>
+        <br>
     </div>
-    {% for reservation in reservations %}
-    <div class="profile-card">
-        <p>Reservation for: {{ reservation }}</p>
-        <p>Time and date: {{ reservation.date_and_time }}</p>
-        <p>Party Size: {{ reservation.party_size }}</p>
-        <p>Your Message to the Restaurant: {{ reservation.message }}</p>
-        <p>Change your message:</p>
-        <form method="POST" action="{% url 'edit_reservation' reservation.pk %}">
-            {% csrf_token %}
-            {{ form | crispy }}
-            <input type="submit" value="Update Message"/>
-        </form>
+    <div class="row reservation-container">
+        {% if reservations  %}
+        {% for reservation in reservations %}
+        <div class="profile-card col-lg-5 col-xxl-3">
+            <div class="row no-gutters">
+                <div class="col-lg-6 res-info-container">
+                    <h4>Reservation for:<br><strong>{{ reservation }}</strong></h4>
+                    <h5>Party of {{ reservation.party_size }}.</h5>
+                    <p>Time and date:<br><em>{{ reservation.date_and_time }}</em></p>
+                    <p>Your Message to the Restaurant:<br><em>{{ reservation.message }}</em></p><br>
+                </div>
+                <div class="col-lg-6 res-form-container">
+                    <form method="POST" action="{% url 'edit_reservation' reservation.pk %}">
+                        {% csrf_token %}
+                        {{ form | crispy }}
+                        <input type="submit" value="Update Message" id="update-msg" />
+                    </form>
+                </div>
+            </div>
+            <div class="row res-delete">
+                <a href="{% url 'reservation_delete' reservation.pk %}">
+                    Delete Reservation
+                </a>
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+        {% else %}
+        <div class="profile-card card-body">
+            <p>You have no reservations.</p>
+        </div>
+        {% endif %}
     </div>
-    <div class="res-delete">
-        <a href="{% url 'reservation_delete' reservation.pk %}">
-            Delete Reservation
-        </a>
-    </div>
-    {% endfor %}
 
     {% else %}
     <p>You need to log in to view your profile.</p>

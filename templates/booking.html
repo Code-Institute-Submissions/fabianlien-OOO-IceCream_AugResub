@@ -1,5 +1,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -28,7 +30,7 @@
             <form id="res-form" method="POST">
                 {% csrf_token %}
                 {{ form | crispy }}
-                <input type="submit" value="Send Request"/>
+                <input type="submit" value="Send Request" />
             </form>
         </div>
     </div>
@@ -43,3 +45,5 @@
     </script>
     <script src="{% static 'js/script.js' %}" crossorigin="anonymous"></script>
 </body>
+
+</html>
