@@ -9,6 +9,10 @@ body {
     text-align: center;
 }
 
+label {
+    color: rgb(5 103 53);
+}
+
 .animated-background {
     background: url("../images/Infinity-3840x2160-min.jpg") no-repeat center;
     background-size: cover;
@@ -522,6 +526,7 @@ nav .active a {
 
 #collapse-booking {
     background-color: rgb(5 103 53);
+    margin-top: -25px;
 }
 
 #collapse-booking .card {
@@ -589,6 +594,10 @@ nav .active a {
     margin: 0 auto;
     width: fit-content;
     text-align: left;
+}
+
+#res-form-container label{
+    color: white;
 }
 
 form {

@@ -5,13 +5,14 @@ from .models import Reservation
 @admin.register(Reservation)
 class AdminReservation(admin.ModelAdmin):
 
-    list_filter = ('date_and_time', 'reservation_status', 'name', 'created_on')
+    list_filter = ('date', 'time', 'reservation_status', 'name', 'created_on')
     search_fields = ['name', 'phone_number', 'email', 'created_on']
     list_display = (
         'reservation_status',
         'name',
         'party_size',
-        'date_and_time',
+        'time',
+        'date',
         'created_on'
         )
     actions = ['toggle_reservation_status']
