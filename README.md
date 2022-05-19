@@ -191,6 +191,11 @@ The file styles.css passed through the W3C Validator with no errors.
 
 The file script.js passed through JSHint with no errors.
 
+The following scores were given when running google lighthouse:  
+![Performance 83/100, Accessability 98/100, Best Practices 75/100, SEO 100/100](screenshots/lighthouse-score-ss.jpg)
+
+
+
 <br>
 
 ## Deployment
