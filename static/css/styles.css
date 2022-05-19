@@ -13,6 +13,11 @@ label {
     color: rgb(5 103 53);
 }
 
+input {
+    border-radius: 0.5em;
+    border: none;
+}
+
 .animated-background {
     background: url("../images/Infinity-3840x2160-min.jpg") no-repeat center;
     background-size: cover;
@@ -526,7 +531,7 @@ nav .active a {
 
 #collapse-booking {
     background-color: rgb(5 103 53);
-    margin-top: -25px;
+    margin-top: -4em;
 }
 
 #collapse-booking .card {
@@ -581,6 +586,10 @@ nav .active a {
     #resveration-btn {
         width: 30%;
         margin: -6em 35% 4em 35%;
+    }
+    #collapse-booking {
+        background-color: rgb(5 103 53);
+        margin-top: -2em;
     }
 }
 

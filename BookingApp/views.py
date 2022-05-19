@@ -20,7 +20,10 @@ class Profile(View):
 
     def post(self, request, pk):
         user = User.objects.get(username=request.user.username)
-        user_reservations = Reservation.objects.filter(user=user).order_by('date_and_time')
+        user_reservations = Reservation.objects.filter(user=user).order_by(
+            'date',
+            'time'
+            )
         user_reservation = Reservation.objects.get(pk=pk)
         profile_form = ProfileForm(request.POST)
         if profile_form.is_valid():

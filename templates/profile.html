@@ -1,7 +1,24 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
-{% block main_content %}
 
+{% block nav_content %}
+{% if user.is_authenticated %}
+<li class="nav-item">
+    <a class="nav-link" id="signup-login-logout" href="{% url 'account_logout' %}">Sign Out</a>
+</li>
+{% endif %}
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'home' %}">Home</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'nybrogatan23' %}">Nybrogatan 23</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="{{ pdf_menu.pdf.url }}" target="_blank">Download our dessert menu</a>
+</li>
+{% endblock %}
+
+{% block main_content %}
 <div class="main-container animated-background">
     {% if user.is_authenticated %}
     <div class="profile-banner">
@@ -24,7 +41,7 @@
                 <div class="col-lg-6 res-info-container">
                     <h4>Reservation for:<br><strong>{{ reservation }}</strong></h4>
                     <h5>Party of {{ reservation.party_size }}.</h5>
-                    <p>Time and date:<br><em>{{ reservation.date_and_time }}</em></p>
+                    <p>Time and date:<br><em><strong>{{ reservation.time }}</strong> {{ reservation.date }}</em></p>
                     <p>Your Message to the Restaurant:<br><em>{{ reservation.message }}</em></p><br>
                 </div>
                 <div class="col-lg-6 res-form-container">

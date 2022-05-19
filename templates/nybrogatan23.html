@@ -2,19 +2,6 @@
 {% load static %}
 
 {% block nav_content %}
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="nav-burger-icon"><img src="{% static 'images/wavy-icon.png' %}" alt="toggle nav menu"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-  <ul class="navbar-nav mr-auto">
-    <div class="row">
-      <div class="col-2">
-        <div class="logo-container">
-          <img id="logotype" src="{% static 'images/logotype.png' %}" alt="Triple Oh! logotype">
-        </div>
-      </div>
-      <div class="col-10">
         {% if user.is_authenticated %}
         <li class="nav-item">
           <a class="nav-link" id="signup-login-logout" href="{% url 'account_logout' %}">Sign Out</a>
@@ -27,9 +14,6 @@
           <a class="nav-link" id="signup-login-logout" href="{% url 'account_login' %}">Sign In/Register</a>
         </li>
         {% endif %}
-        <li class="nav-item active">
-          <a class="nav-link" href="#" id="nybro-nav-link">Nybrogatan 23</a>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'home' %}">Home</a>
         </li>
@@ -90,7 +74,7 @@
 </section>
 <section>
   <div class="row">
-    <div id="nybro23-text-container" class="col-xl-10 offset-xl-1">
+    <div id="nybro23-text-container" class="col-10 offset-1 col-xl-8 offset-xl-2">
       <p>{{ text_content.content | safe }}</p>
     </div>
   </div>

@@ -1,6 +1,5 @@
 $(document).ready(function () {
   /** Initiates google maps API */
-
   function initMap() {
     const Nybrogatan23 = {
       lat: 59.335502546345275,
@@ -28,7 +27,7 @@ $(document).ready(function () {
     interval: 4000
   })
 
-  /** Unpauses zoom animation then navigates to the Nybrogatan23 page after short delay. */
+  /** Unpauses zoom animation then navigates to the Nybrogatan23 page after a short delay. */
   function timeOut(initialDelay) {
     if (initialDelay === true) {
       setTimeout(function () {
@@ -64,8 +63,14 @@ $(document).ready(function () {
     if ($('.carousel-indicators').children().hasClass('active')) {
       let slideNum = ($('.active').attr('data-slide-to'));
       $('#slide-' + slideNum).parent().addClass('active');
+      if (slideNum = 0) {
+        $('#slide-3').parent().addClass('active');
+      }
     }
   })
+
+
+
 
 
   /** Collapses the navbar on click anywhere on the page. */
@@ -87,6 +92,5 @@ $(document).ready(function () {
   /** Removes alert messages automatically */
   setTimeout(function () {
     $('.alert').alert('close')
-}, 6000);
+  }, 6000);
 });
-

@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHrwP6L0Tvexuz2ZMaAPfoZmKSsfjnaHM&callback=initMap">
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHrwP6L0Tvexuz2ZMaAPfoZmKSsfjnaHM&callback=initMap">
     </script>
     <title>OOO Ice Cream</title>
 </head>
@@ -36,8 +37,22 @@
             <a class="navbar-brand" href="{% url 'home' %}">
                 <h1>Triple Oh!</h1>
             </a>
-            {% block nav_content %}
-            {% endblock %}
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="nav-burger-icon"><img src="{% static 'images/wavy-icon.png' %}"
+                        alt="toggle nav menu"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="logo-container">
+                                <img id="logotype" src="{% static 'images/logotype.png' %}" alt="Triple Oh! logotype">
+                            </div>
+                        </div>
+                        <div class="col-10">
+                            {% block nav_content %}
+                            {% endblock %}
         </nav>
         {% for message in messages %}
         <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
