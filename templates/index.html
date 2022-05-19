@@ -2,150 +2,165 @@
 {% load static %}
 
 {% block nav_content %}
-                {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" id="signup-login-logout" href="{% url 'account_logout' %}">Sign Out</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'profile' %}">View Reservations</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" id="signup-login-logout" href="{% url 'account_login' %}">Sign In/Register</a>
-                </li>
-                {% endif %}
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" id="slide-0">About Us<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" id="slide-1">Ice cream flavors</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" id="slide-2">Nybrogatan 23</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ pdf_menu.pdf.url }}" target="_blank">Download our dessert menu</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" id="slide-3">Contact Us</a>
-                </li>
-            </div>
-        </div>
-    </ul>
+{% if user.is_authenticated %}
+<li class="nav-item">
+    <a class="nav-link" id="signup-login-logout" href="{% url 'account_logout' %}">Sign Out</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'profile' %}">View Reservations</a>
+</li>
+{% else %}
+<li class="nav-item">
+    <a class="nav-link" id="signup-login-logout" href="{% url 'account_login' %}">Sign In/Register</a>
+</li>
+{% endif %}
+<li class="nav-item active">
+    <a class="nav-link" href="#" id="slide-0">About Us<span class="sr-only">(current)</span></a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="#" id="slide-1">Ice cream flavors</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="#" id="slide-2">Nybrogatan 23</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{{ pdf_menu.pdf.url }}" target="_blank">Download our dessert menu</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="#" id="slide-3">Contact Us</a>
+</li>
+</div>
+</div>
+</ul>
 
 </div>
 {% endblock %}
 
 {% block main_content %}
-<div class="row slide-container no-gutters animated-background" style="background:url({% static 'images/Infinity-3840x2160-min.jpg' %}) no-repeat cover;">
-    <div class="col-xl-10 offset-xl-1">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-            </ol>
-            <div class="carousel-inner">
-                <!-- About Slide -->
-                <div class="carousel-item active">
-                    <div class="d-block slide">
-                        <h3>{{ about.title }}</h3>
-                        <div class="row">
-                            <div class=" col-lg-10 offset-lg-1 big-card">
-                                <div class="row">
-                                    <div class="col-5 d-none d-md-inline">
-                                        <div id="landing-slide-image-border">
-                                            <img id="landing-slide-image" src="{{ about.image.url }}" alt="{{ about.image_alternative_text }}">
+<div class="-index-main-container">
+    <div class="animated-background">
+        <img src="{% static 'images/Infinity8000x4500-min.jpg' %}" aria-hidden="true">
+    </div>
+</div>
+<div class="slide-container">
+    <div class="row  no-gutters">
+        <div class="col-xl-10 offset-xl-1">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <!-- About Slide -->
+                    <div class="carousel-item active">
+                        <div class="d-block slide">
+                            <h3>{{ about.title }}</h3>
+                            <div class="row">
+                                <div class=" col-lg-10 offset-lg-1 big-card">
+                                    <div class="row">
+                                        <div class="col-5 d-none d-md-inline">
+                                            <div id="landing-slide-image-border">
+                                                <img id="landing-slide-image" src="{{ about.image.url }}"
+                                                    alt="{{ about.image_alternative_text }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 offset-md-1">
+                                            <h5>{{ about.content }}</h5>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 offset-md-1">
-                                        <h5>{{ about.content }}</h5>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- Flavours Slide -->
-                <div class="carousel-item car-item-scroll">
-                    <div class="d-block slide">
-                        <h3>Our Ice Cream:</h3>
-                        <div class="row">
-                            {% for flavour in flavour_list %}
-                            {% if flavour.display_flavour == 1 %}
-                            <div class="card-container col-lg-4">
-                                {% if forloop.counter|divisibleby:2 %}
-                                <div class="card-body card-green">
-                                    {% else %}
-                                    <div class="card-body card-pink">
-                                        {% endif %}
-                                        <div class="color-ball" style="background-color:{{ flavour.color }}"></div>
-                                        <p class="card-title">{{ flavour.name }}</p>
-                                        <p class="card-subtitle mb-2 text-muted">{{ flavour.category }}</p>
-                                        <p class="card-text">"{{ flavour.description }}"</p>
-                                        <p class="card-text small">Allergens: {{ flavour.allergens }}</p>
-                                    </div>
-                                </div>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Nybrogtan Slide -->
-                    <div class="carousel-item">
-                        <div class="d-block slide">
-                            <h3>Visit Nybrogatan 23:</h3>
-                            <div class="row">
-                                <div class="col-md-10 offset-md-1">
-                                    <a href="#"><img id="nybrogatan-image" class="zoomTarget" alt="link to Nybrogatan 23"
-                                            src="{{ nybrogatan23_framed.image.url }}">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Contacts Slide -->
+                    <!-- Flavours Slide -->
                     <div class="carousel-item car-item-scroll">
                         <div class="d-block slide">
-                            <h3>Contact Us:</h3>
+                            <h3>Our Ice Cream:</h3>
                             <div class="row">
-                                {% for contact in contacts %}
-                                <div id="contact-cards" class="card-container col-lg-12">
+                                {% for flavour in flavour_list %}
+                                {% if flavour.display_flavour == 1 %}
+                                <div class="card-container col-lg-4">
                                     {% if forloop.counter|divisibleby:2 %}
-                                    <div class="card-body col-lg-10 card-green contact-card">
+                                    <div class="card-body card-green">
                                         {% else %}
-                                        <div class="card-body col-lg-10 card-pink contact-card-right offset-lg-2">
+                                        <div class="card-body card-pink">
                                             {% endif %}
-                                            {% if "placeholder" in contact.image.url %}
-                                            <div class="color-ball image-ball d-none d-md-inline">
-                                                <img class="contact-image" src="{% static 'images/logotype.png' %}" alt="Default profile picture">
+                                            <div class="color-ball" style="background-color:{{ flavour.color }}">
                                             </div>
-                                            {% else %}
-                                            <div class="color-ball image-ball d-none d-md-inline">
-                                                <img class="contact-image" src="{{ contact.image.url }}" alt="Profile picture">
-                                            </div>
-                                            {% endif %}
-                                            <p class="card-title">{{ contact.name }}</p>
-                                            <p class="card-subtitle mb-2">+46{{ contact.phone_number }}</p>
-                                            <p class="card-subtitle mb-2">{{ contact.address }}</p>
-                                            <br>
-                                            <p class="card-text">{{ contact.email }}</p>
+                                            <p class="card-title">{{ flavour.name }}</p>
+                                            <p class="card-subtitle mb-2 text-muted">{{ flavour.category }}</p>
+                                            <p class="card-text">"{{ flavour.description }}"</p>
+                                            <p class="card-text small">Allergens: {{ flavour.allergens }}</p>
                                         </div>
                                     </div>
+                                    {% endif %}
                                     {% endfor %}
                                 </div>
                             </div>
                         </div>
+                        <!-- Nybrogtan Slide -->
+                        <div class="carousel-item">
+                            <div class="d-block slide">
+                                <h3>Visit Nybrogatan 23:</h3>
+                                <div class="row">
+                                    <div class="col-md-10 offset-md-1">
+                                        <a href="#"><img id="nybrogatan-image" class="zoomTarget"
+                                                alt="link to Nybrogatan 23" src="{{ nybrogatan23_framed.image.url }}">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Contacts Slide -->
+                        <div class="carousel-item car-item-scroll">
+                            <div class="d-block slide">
+                                <h3>Contact Us:</h3>
+                                <div class="row">
+                                    {% for contact in contacts %}
+                                    <div id="contact-cards" class="card-container col-lg-12">
+                                        {% if forloop.counter|divisibleby:2 %}
+                                        <div class="card-body col-lg-10 card-green contact-card">
+                                            {% else %}
+                                            <div class="card-body col-lg-10 card-pink contact-card-right offset-lg-2">
+                                                {% endif %}
+                                                {% if "placeholder" in contact.image.url %}
+                                                <div class="color-ball image-ball d-none d-md-inline">
+                                                    <img class="contact-image" src="{% static 'images/logotype.png' %}"
+                                                        alt="Default profile picture">
+                                                </div>
+                                                {% else %}
+                                                <div class="color-ball image-ball d-none d-md-inline">
+                                                    <img class="contact-image" src="{{ contact.image.url }}"
+                                                        alt="Profile picture">
+                                                </div>
+                                                {% endif %}
+                                                <p class="card-title">{{ contact.name }}</p>
+                                                <p class="card-subtitle mb-2">+46{{ contact.phone_number }}</p>
+                                                <p class="card-subtitle mb-2">{{ contact.address }}</p>
+                                                <br>
+                                                <p class="card-text">{{ contact.email }}</p>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                            data-slide="prev">
+                            <span class="carousel-angle-prev" aria-hidden="true"><i
+                                    class="fa-solid fa-angle-left"></i></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                            data-slide="next">
+                            <span class="carousel-angle-next" aria-hidden="true"><i
+                                    class="fa-solid fa-angle-right"></i></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-angle-prev" aria-hidden="true"><i class="fa-solid fa-angle-left"></i></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-angle-next" aria-hidden="true"><i class="fa-solid fa-angle-right"></i></span>
-                        <span class="sr-only">Next</span>
-                    </a>
                 </div>
             </div>
         </div>

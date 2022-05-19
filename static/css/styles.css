@@ -18,17 +18,40 @@ input {
     border: none;
 }
 
+/* Background animation */
+
+
 .animated-background {
-    background: url("../images/Infinity-3840x2160-min.jpg") no-repeat center;
-    background-size: cover;
+    position: relative;
+    width: fit-content;
+    height: 78vh;
+    animation: pan-left 20s infinite linear;
+    overflow-x: visible;
 }
+
+.index-main-container {
+    height: 78vh;
+    overflow: hidden;
+}
+
+.animated-background img {
+    width: 350%;
+    z-index: -1;
+}
+
+
+@keyframes pan-left {
+    0% {
+        left: -250%;
+    }
+    100% {
+        left: 0%;
+    }
+}
+
 
 h3 {
     padding-bottom: 1em;
-}
-
-.main-container {
-    min-height: 78vh;
 }
 
 .auth-card {
@@ -55,23 +78,26 @@ h3 {
 }
 
 .user-status {
-    width:100%;
+    width: 100%;
     text-align: right;
     padding-right: 2em;
     height: 2vh;
 }
 
 .user-status a {
-    color:rgb(5 103 53);
+    color: rgb(5 103 53);
 }
 
 body::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, and Opera */
-  }
+    display: none;
+    /* Chrome, Safari, and Opera */
+}
 
 body {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 nav h1 {
@@ -154,6 +180,8 @@ nav .active a {
 /* Footer */
 
 #footer-container {
+    position: sticky;
+    bottom: 0;
     background-color: rgb(5 103 53);
     color: rgb(250 244 180);
     height: 5vh;
@@ -175,9 +203,11 @@ nav .active a {
 /* Index page */
 
 .slide-container {
+    position: absolute;
     height: 78vh;
+    background-color: rgba(0, 0, 0, 0);
     width: 100%;
-    margin: 0;
+    margin: -78vh 0 0 0;
 }
 
 .carousel-angle-prev {
@@ -203,12 +233,15 @@ nav .active a {
 }
 
 .carousel-item::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, and Opera */
-  }
+    display: none;
+    /* Chrome, Safari, and Opera */
+}
 
 .carousel-item {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .slide {
@@ -295,14 +328,14 @@ nav .active a {
     width: 30vh;
     background-color: rgb(248 186 166);
     border-radius: 50%;
-    margin-top: 10%;
+    margin-top: 2.5vh;
     margin-left: 5%;
 }
 
 #landing-slide-image {
     object-fit: cover;
     height: 30vh;
-    width:  24vh;
+    width: 24vh;
     border-radius: 45%;
     position: relative;
     right: 10%;
@@ -313,6 +346,7 @@ nav .active a {
         border-radius: 120px;
         text-align: center;
     }
+
     .big-card h5 {
         padding: 48px;
         font-size: 180%;
@@ -385,23 +419,27 @@ nav .active a {
     .card-container {
         padding: 4px;
     }
+
     .card-body {
         border-radius: 16px;
         height: 168px;
     }
+
     .color-ball {
         left: 1em;
         height: 36px;
         width: 36px;
     }
+
     .card-subtitle {
         margin-top: -16px;
     }
+
     .card-text.small {
-       position: absolute;
-       bottom: 1em;
-       text-align: start;
-       padding-right: 1.5em;
+        position: absolute;
+        bottom: 1em;
+        text-align: start;
+        padding-right: 1.5em;
     }
 }
 
@@ -413,7 +451,7 @@ nav .active a {
     margin-top: 2vh;
     object-fit: cover;
     max-width: 100%;
-    max-height: 50vh; 
+    max-height: 50vh;
     animation: zoom-in 1s ease backwards;
     animation-play-state: paused;
 }
@@ -422,17 +460,19 @@ nav .active a {
     border-color: rgb(146, 211, 140);
 }
 
-  @keyframes zoom-in {
+@keyframes zoom-in {
     0% {
         transform: scale(1, 1);
     }
+
     50% {
         transform: scale(1.7, 1.7);
     }
+
     100% {
         transform: scale(1.7, 1.7);
     }
-  }
+}
 
 
 /* Contact cards slide */
@@ -457,7 +497,7 @@ nav .active a {
     background-color: rgb(202, 202, 173);
 }
 
-.contact-card-right .image-ball{
+.contact-card-right .image-ball {
     left: unset;
     right: 2em;
 }
@@ -474,7 +514,7 @@ nav .active a {
     #contact-cards .contact-card-right {
         border-bottom-right-radius: 64px;
     }
-    
+
     #contact-cards .contact-card {
         border-bottom-left-radius: 64px;
     }
@@ -583,10 +623,12 @@ nav .active a {
     #nybro23-image-gallery img {
         border: double 2em rgb(5 103 53);
     }
+
     #resveration-btn {
         width: 30%;
         margin: -6em 35% 4em 35%;
     }
+
     #collapse-booking {
         background-color: rgb(5 103 53);
         margin-top: -2em;
@@ -605,7 +647,7 @@ nav .active a {
     text-align: left;
 }
 
-#res-form-container label{
+#res-form-container label {
     color: white;
 }
 
@@ -643,6 +685,19 @@ form {
 }
 
 /* Profile page */
+
+
+#profile-background-container {
+    background-image: url("/static/images/Infinity-3840x2160-min.jpg");
+    background-position: center; 
+    background-size: cover;
+    background-repeat: repeat-y;   
+    width: 100%;
+}
+
+.main-container {
+    min-height: 78vh;
+}
 
 .profile-banner {
     background-color: rgb(5 103 53);

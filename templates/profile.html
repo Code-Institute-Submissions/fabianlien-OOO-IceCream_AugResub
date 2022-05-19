@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load crispy_forms_tags %}
 
 {% block nav_content %}
@@ -8,68 +9,71 @@
 </li>
 {% endif %}
 <li class="nav-item">
-  <a class="nav-link" href="{% url 'home' %}">Home</a>
+    <a class="nav-link" href="{% url 'home' %}">Home</a>
 </li>
 <li class="nav-item">
-  <a class="nav-link" href="{% url 'nybrogatan23' %}">Nybrogatan 23</a>
+    <a class="nav-link" href="{% url 'nybrogatan23' %}">Nybrogatan 23</a>
 </li>
 <li class="nav-item">
-  <a class="nav-link" href="{{ pdf_menu.pdf.url }}" target="_blank">Download our dessert menu</a>
+    <a class="nav-link" href="{{ pdf_menu.pdf.url }}" target="_blank">Download our dessert menu</a>
 </li>
 {% endblock %}
 
 {% block main_content %}
-<div class="main-container animated-background">
-    {% if user.is_authenticated %}
-    <div class="profile-banner">
-        <br>
-        <h2>{{ user }}</h2>
-        <p>Account email: {{ user.email }}</p>
-        <br>
-    </div>
-    <div class="row reservation-container">
-        {% if reservations  %}
-        {% for reservation in reservations %}
-        <div class="profile-card col-lg-5 col-xxl-3">
-            <div class="row">
-                <div class="col">
-                    {% if reservation.reservation_status == 1 %}<div>The reservation has been
-                        confirmed!</div>{% else %}<div class="not-confirmed">The reservation is not yet confirmed!</div>{% endif %}
-                </div>
-            </div>
-            <div class="row no-gutters">
-                <div class="col-lg-6 res-info-container">
-                    <h4>Reservation for:<br><strong>{{ reservation }}</strong></h4>
-                    <h5>Party of {{ reservation.party_size }}.</h5>
-                    <p>Time and date:<br><em><strong>{{ reservation.time }}</strong> {{ reservation.date }}</em></p>
-                    <p>Your Message to the Restaurant:<br><em>{{ reservation.message }}</em></p><br>
-                </div>
-                <div class="col-lg-6 res-form-container">
-                    <form method="POST" action="{% url 'edit_reservation' reservation.pk %}">
-                    {% csrf_token %}
-                    {{ form | crispy }}
-                    <input type="submit" value="Update Message" id="update-msg" />
-                    </form>
-                </div>
-            </div>
-            <div class="row res-delete">
-                <a href="{% url 'reservation_delete' reservation.pk %}">
-                    Delete Reservation
-                </a>
-            </div>
+<div id="profile-background-container">
+    <div class="main-container">
+        {% if user.is_authenticated %}
+        <div class="profile-banner">
+            <br>
+            <h2>{{ user }}</h2>
+            <p>Account email: {{ user.email }}</p>
+            <br>
         </div>
-        <br>
-        {% endfor %}
+        <div class="row reservation-container">
+            {% if reservations  %}
+            {% for reservation in reservations %}
+            <div class="profile-card col-lg-5 col-xxl-3">
+                <div class="row">
+                    <div class="col">
+                        {% if reservation.reservation_status == 1 %}<div>The reservation has been
+                            confirmed!</div>{% else %}<div class="not-confirmed">The reservation is not yet confirmed!
+                        </div>{% endif %}
+                    </div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="col-lg-6 res-info-container">
+                        <h4>Reservation for:<br><strong>{{ reservation }}</strong></h4>
+                        <h5>Party of {{ reservation.party_size }}.</h5>
+                        <p>Time and date:<br><em><strong>{{ reservation.time }}</strong> {{ reservation.date }}</em></p>
+                        <p>Your Message to the Restaurant:<br><em>{{ reservation.message }}</em></p><br>
+                    </div>
+                    <div class="col-lg-6 res-form-container">
+                        <form method="POST" action="{% url 'edit_reservation' reservation.pk %}">
+                            {% csrf_token %}
+                            {{ form | crispy }}
+                            <input type="submit" value="Update Message" id="update-msg" />
+                        </form>
+                    </div>
+                </div>
+                <div class="row res-delete">
+                    <a href="{% url 'reservation_delete' reservation.pk %}">
+                        Delete Reservation
+                    </a>
+                </div>
+            </div>
+            <br>
+            {% endfor %}
+            {% else %}
+            <div class="profile-card card-body">
+                <p>You have no reservations.</p>
+            </div>
+            {% endif %}
+        </div>
+
         {% else %}
-        <div class="profile-card card-body">
-            <p>You have no reservations.</p>
-        </div>
+        <p>You need to log in to view your profile.</p>
+        <h2><a href="{% url 'account_login' %}">Sign In / Register</a></h2>
         {% endif %}
     </div>
-
-    {% else %}
-    <p>You need to log in to view your profile.</p>
-    <h2><a href="{% url 'account_login' %}">Sign In / Register</a></h2>
-    {% endif %}
 </div>
 {% endblock %}
