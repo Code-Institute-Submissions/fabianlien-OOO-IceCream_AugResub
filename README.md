@@ -57,6 +57,19 @@ The website makes use of Django's built-in Admin view to provide several feature
 * Google Maps:
   The Nybrogatan restaurant page also includes an embedded google map through the Maps Javascript API. The map uses has a custom marker for the restaurant so that the user quickly identifies the location of the restaurant, and custom styling in order to blend in with the rest of the page.
 
+<br>
+
+## Future Features to include
+### Availability Check
+The most logical feature to include next would be the ability for an authenticated user to only be able to send a reservation request for a table if it is available. This would require creating a new database model for availability which relates to both the user and the reservation model, and custom a lot of custom logic to be able to identify availability parameters (time-slot duration, amount of tables, opening hours, group size). This was initially decided to not be a part of the project as it did not fit into the timeframe.
+
+### Detail View for flavours
+A neat social feature to include would be to allow the user to click on a ice cream flavour to get more details about the icecream and, if signed in, also post comments about the specified flavour. This was not included in the scope of the project because it is not part of the required business logic at this point.
+
+### Ordering And Logistics System
+The biggest potential feature to include would be the functionality required for a customer to order Ice cream for delivery. This would require a large expansion of several existing features as well as implenting new database models to manage the logistics.
+
+<br>
 
 ## Custom Models
 The website makes use of several custom database models to provide the neccessary functionality:
@@ -110,6 +123,38 @@ Outlined below are the user stories for the project. Due to a very limited proje
 
 <br>
 
-## Data Model ##
+### UI Layout
+A wireframe was made to get an overview of what the landing page would look like (subsequent pages were designed in the GitPod IDE during development):
+![Image of the wireframe for the landing page](screenshots/wireframe-index-ss.jpg)
 
-### Utilized Te
+<br>
+
+### Data Model
+A Data modelling tool was used to create an overview of the necessary database models to ensure project functionality:
+![Image of the data model map](screenshots/db-model-ss.jpg)
+
+<br>
+
+### Utilized Technologies
+
+* **Coding Languages:**
+  * Python
+  * HTML
+  * CSS
+  * JavaScript  
+*  **Django Framework:**
+   * Colorfield - Color selector widget.
+   * AllAuth - Authentication package.
+   * SoloApp - Custom "singleton" model.
+   * Summernote - WYSIWYG widget.
+   * Crispy Forms - Form layout overhaul.
+*  **Hosting Platforms:**
+   * Heroku - Web application host.
+   * Cloudinary - Static and media file host.
+*  Coding Environment - **GitPod**
+*  Version Control System - **GitHub**
+*  Database Technology - **PostgreSQL**
+
+<br>
+
+##Testing
