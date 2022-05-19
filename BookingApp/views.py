@@ -8,7 +8,10 @@ from .models import Reservation
 
 
 class Profile(View):
-
+    """
+    Lets the user View their reservations on their profile page
+    and perform post requests to update the object instance message.
+    """
     def get(self, request):
         user = User.objects.get(username=request.user.username)
         user_reservations = Reservation.objects.filter(user=user)
@@ -43,7 +46,10 @@ class Profile(View):
 
 @login_required(login_url='login')
 def ReservationView(request):
-
+    """
+    Lets the user perform post requests to add a reservation instance
+    through an input form.
+    """
     form = ReservationForm(request.POST or None)
     if form.is_valid():
         user = User.objects.get(username=request.user.username)
@@ -52,7 +58,8 @@ def ReservationView(request):
         reservation.save()
         form = ReservationForm()
         messages.success(
-            request, 'Your request has been registered, the restaurant will contact you and confirm your reservation!')
+            request, 'Your request has been registered, the restaurant \
+            will contact you and confirm your reservation!')
 
     return render(request, 'booking.html', {
         'form': form
@@ -61,6 +68,9 @@ def ReservationView(request):
 
 @login_required(login_url='login')
 def ReservationDeleteView(request, pk):
+    """
+    Allows the user to delete a reservation instance from thier profile.
+    """
     reservation = Reservation.objects.get(pk=pk)
     reservation.delete()
     messages.success(

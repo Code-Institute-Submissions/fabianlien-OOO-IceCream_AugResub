@@ -4,13 +4,15 @@ from colorfield.fields import ColorField
 from solo.models import SingletonModel
 from django.core.validators import (
     FileExtensionValidator, MaxValueValidator, MinValueValidator)
-from django.contrib.auth.models import User
 
 DISPLAY_FLAVOUR = ((0, "Hidden"), (1, "Display"))
 
 
 # Admin Content Management Models:
 class About(SingletonModel):
+    """
+    Allows administrators to change the content of the "About" slide.
+    """
     title = models.CharField(max_length=30)
     content = models.TextField(max_length=120)
     image = CloudinaryField(
@@ -28,6 +30,9 @@ class About(SingletonModel):
 
 
 class MenuPDF(SingletonModel):
+    """
+    Provides administrators with CRUD functionality for the "Flavours" slide.
+    """
     pdf = models.FileField(
         upload_to='static/pdf/',
         validators=[FileExtensionValidator(allowed_extensions=["pdf"])]
@@ -41,6 +46,10 @@ class MenuPDF(SingletonModel):
 
 
 class Flavour(models.Model):
+    """
+    Allows administrators to store employee contact information
+    and display it on the webpage.
+    """
     name = models.CharField(max_length=20, unique=True)
     category = models.CharField(max_length=20)
     description = models.TextField(max_length=120)
@@ -60,6 +69,10 @@ class Flavour(models.Model):
 
 
 class Contact(models.Model):
+    """
+    Allows administrators to store employee contact information
+    and display it on the webpage.
+    """
     name = models.CharField(max_length=40)
     phone_number = models.BigIntegerField(unique=True, blank=True)
     email = models.EmailField(unique=True, blank=True)
@@ -78,6 +91,10 @@ class Contact(models.Model):
 
 
 class Nybro23Image(models.Model):
+    """
+    Allows administrators to upload a single image file
+    in *.jpg* or *.png* format to be displayed on the home page.
+    """
     name = models.CharField(max_length=40, blank=True)
     image = CloudinaryField(
         'image',
@@ -101,6 +118,10 @@ class Nybro23Image(models.Model):
 
 
 class Nybro23Text(SingletonModel):
+    """
+    provides CRUD funtionality through a WYSIWYG editor (summernote)
+    that displays its' content on the restaurant page.
+    """
     content = models.TextField()
 
     class Meta:
@@ -108,14 +129,3 @@ class Nybro23Text(SingletonModel):
 
     def __str__(self):
         return 'Nybrogatan 23 Content'
-
-
-# User CRUD Models:
-#class Comment(models.Model):
-#    author = models.ForeignKey(User, on_delete=models.CASCADE)
-#    flavour = models.ForeignKey(Flavour, on_delete=models.CASCADE)
-#    body = models.TextField()
-#    created = models.DateTimeField(auto_now_add=True)
-#
-#   def __str__(self):
-#        return 'author'

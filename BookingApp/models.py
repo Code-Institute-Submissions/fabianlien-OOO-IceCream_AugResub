@@ -3,7 +3,10 @@ from django.contrib.auth.models import User
 
 
 class Reservation(models.Model):
-
+    '''
+    Utilized by both the Admin CMS as well as well as user-generated
+    form input for creating and managing reservations.
+    '''
     STATUS = ((0, "Unconfirmed"), (1, "Confirmed"))
     AVAILABLE_GROUPS = (
        (1, '1'),
