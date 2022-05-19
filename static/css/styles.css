@@ -1,3 +1,5 @@
+/* Global styling */
+
 @font-face {
     font-family: Recoleta;
     src: url("../fonts/Recoleta-RegularDEMO.otf") format("opentype");
@@ -7,6 +9,10 @@ body {
     font-family: Recoleta, sans-serif;
     background-color: rgb(250 244 180);
     text-align: center;
+}
+
+ul li {
+    list-style: none;
 }
 
 label {
@@ -130,8 +136,9 @@ nav {
     min-height: 15vh;
 }
 
-.nav-burger-icon img {
-    height: 48px;
+.nav-burger-icon {
+    padding-top: 0.5em;
+    height: 4em;
 }
 
 #nybro-nav-link {
@@ -497,6 +504,14 @@ nav .active a {
     }
 }
 
+#collapse-booking p {
+    color:rgb(248 186 166);
+}
+
+#collapse-booking #reservation-no-auth {
+    text-decoration: none;
+    color: white;
+}
 
 /* Contact cards slide */
 
@@ -526,29 +541,29 @@ nav .active a {
 }
 
 @media screen and (min-width: 993px) {
-    #contact-cards .contact-card-right p {
+    .contact-cards .contact-card-right p {
         margin-right: 13.4vw;
     }
 
-    #contact-cards .contact-card p {
+    .contact-cards .contact-card p {
         margin-left: 13.4vw;
     }
 
-    #contact-cards .contact-card-right {
+    .contact-cards .contact-card-right {
         border-bottom-right-radius: 64px;
     }
 
-    #contact-cards .contact-card {
+    .contact-cards .contact-card {
         border-bottom-left-radius: 64px;
     }
 }
 
 @media screen and (min-width: 1201px) {
-    #contact-cards .contact-card-right p {
+    .contact-cards .contact-card-right p {
         margin-right: 11.1vw;
     }
 
-    #contact-cards .contact-card p {
+    .contact-cards .contact-card p {
         margin-left: 11.1vw;
     }
 }

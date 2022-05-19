@@ -2,39 +2,36 @@
 {% load static %}
 
 {% block nav_content %}
-        {% if user.is_authenticated %}
-        <li class="nav-item">
-          <a class="nav-link" id="signup-login-logout" href="{% url 'account_logout' %}">Sign Out</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'profile' %}">View Reservations</a>
-        </li>
-        {% else %}
-        <li class="nav-item">
-          <a class="nav-link" id="signup-login-logout" href="{% url 'account_login' %}">Sign In/Register</a>
-        </li>
-        {% endif %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'home' %}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="collapse" href="#collapse-booking">Book a table</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ pdf_menu.pdf.url }}" target="_blank">Download our dessert menu</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact Us</a>
-        </li>
-      </div>
-    </div>
-  </ul>
-
-</div>
+<ul>
+  {% if user.is_authenticated %}
+  <li class="nav-item">
+    <a class="nav-link" id="signup-login-logout" href="{% url 'account_logout' %}">Sign Out</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'profile' %}">View Reservations</a>
+  </li>
+  {% else %}
+  <li class="nav-item">
+    <a class="nav-link" id="signup-login-logout" href="{% url 'account_login' %}">Sign In/Register</a>
+  </li>
+  {% endif %}
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'home' %}">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="collapse" href="#collapse-booking">Book a table</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ pdf_menu.pdf.url }}" target="_blank">Download our dessert menu</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Contact Us</a>
+  </li>
+</ul>
 {% endblock %}
 
 {% block main_content %}
-<section>
+<div>
   <div class="row">
     <div class="col-xl-10 offset-xl-1 col-xxl-8 offset-xxl-2">
       <div id="nybro23-image-gallery" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -48,12 +45,10 @@
       </div>
     </div>
   </div>
-</section>
-<section>
   <div class="row">
     <div class="col-lg-10 offset-lg-1">
       <a id="resveration-btn" class="btn btn-success" data-toggle="collapse" href="#collapse-booking" role="button"
-        aria-expanded="false" aria-controls="collapseExample">
+        aria-expanded="false">
         Make a Reservation
       </a>
       <div class="collapse" id="collapse-booking">
@@ -64,15 +59,13 @@
           {% else %}
           <div>
             <p>You need to be be signed in to make a reservation:</p>
-            <a href="{% url 'account_login' %}">Sign In / Register</a>
+            <a id="reservation-no-auth" href="{% url 'account_login' %}">Sign In / Register</a>
           </div>
           {% endif %}
         </div>
       </div>
     </div>
   </div>
-</section>
-<section>
   <div class="row">
     <div id="nybro23-text-container" class="col-10 offset-1 col-xl-8 offset-xl-2">
       <p>{{ text_content.content | safe }}</p>
@@ -83,33 +76,32 @@
       <h3 id="contact-us">Contact Us:</h3>
     </div>
   </div>
-    <div class="row">
-      {% for contact in contacts %}
-        {% if forloop.counter|divisibleby:2 %}
-        <div class="card-body col-12 card-green m-none contact-card">
-        {% else %}
-        <div class="card-body col-12 card-pink contact-card-right">
-            {% endif %}
-            {% if "placeholder" in contact.image.url %}
-            <div class="color-ball image-ball d-none d-md-inline">
-              <img class="contact-image" src="{% static 'images/logotype.png' %}" alt="Default profile picture">
-            </div>
-            {% else %}
-            <div class="color-ball image-ball d-none d-md-inline">
-              <img class="contact-image" src="{{ contact.image.url }}" alt="Profile picture">
-            </div>
-            {% endif %}
-            <p class="card-title">{{ contact.name }}</p>
-            <p class="card-subtitle mb-2">+46{{ contact.phone_number }}</p>
-            <p class="card-subtitle mb-2">{{ contact.address }}</p>
-            <br>
-            <p class="card-text">{{ contact.email }}</p>
+  <div class="row">
+    {% for contact in contacts %}
+    {% if forloop.counter|divisibleby:2 %}
+    <div class="card-body col-12 card-green m-none contact-card">
+      {% else %}
+      <div class="card-body col-12 card-pink contact-card-right">
+        {% endif %}
+        {% if "placeholder" in contact.image.url %}
+        <div class="color-ball image-ball d-none d-md-inline">
+          <img class="contact-image" src="{% static 'images/logotype.png' %}" alt="Default profile picture">
         </div>
-        {% endfor %}
+        {% else %}
+        <div class="color-ball image-ball d-none d-md-inline">
+          <img class="contact-image" src="{{ contact.image.url }}" alt="Profile picture">
+        </div>
+        {% endif %}
+        <p class="card-title">{{ contact.name }}</p>
+        <p class="card-subtitle mb-2">+46{{ contact.phone_number }}</p>
+        <p class="card-subtitle mb-2">{{ contact.address }}</p>
+        <br>
+        <p class="card-text">{{ contact.email }}</p>
       </div>
+      {% endfor %}
     </div>
-</section>
-<section>
+</div>
+<div>
   <div id="google-map"></div>
-</section>
+</div>
 {% endblock %}

@@ -8,7 +8,6 @@ from django.core.validators import (
 DISPLAY_FLAVOUR = ((0, "Hidden"), (1, "Display"))
 
 
-# Admin Content Management Models:
 class About(SingletonModel):
     """
     Allows administrators to change the content of the "About" slide.
@@ -122,7 +121,7 @@ class Nybro23Text(SingletonModel):
     provides CRUD funtionality through a WYSIWYG editor (summernote)
     that displays its' content on the restaurant page.
     """
-    content = models.TextField()
+    content = models.TextField(blank=True)
 
     class Meta:
         verbose_name_plural = 'Nybrogatan 23 Content'

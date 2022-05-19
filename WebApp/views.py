@@ -3,9 +3,11 @@ from django.views import View
 from .models import *
 
 
-# Create your views here.
 class MainPage(View):
-
+    '''
+    Renders the homepage and provides requests
+    for all CMS-related template content.
+    '''
     def get(self, request):
         about = About.objects.get(id=1)
         pdf_menu = MenuPDF.objects.get(id=1)
@@ -26,7 +28,10 @@ class MainPage(View):
 
 
 class Nybrogatan23(View):
-
+    '''
+    Renders the Nybrogatan23 page and provides requests
+    for all CMS-related template content.
+    '''
     def get(self, request):
         pdf_menu = MenuPDF.objects.get(id=1)
         text_content = Nybro23Text.objects.get(id=1)

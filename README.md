@@ -157,4 +157,160 @@ A Data modelling tool was used to create an overview of the necessary database m
 
 <br>
 
-##Testing
+### Unresolved Bugs
+* There is an issue with the Google Maps API that prevents the InitMap function from executing after page load. Initial troubleshooting yielded no resolutions or work-arounds. Due to time constraints the issue remains. Further troubleshooting required.
+
+* There has been a cloudinary issue since early deployment which prevents pushing to Heroku due to some unknown Value error in the cloudinary source code. The current work-around is to delete all static files from the cloudinary database before each push. If the issue remains unresolved I will consider changing to another static file host provider.
+
+* There is a minor logic issue in the static JavaScript file which causes the "active" class navbar list item not to correspond to the "active" class carousel item. Initially this was thought to be a simple +1 error, but it proved more complicated to fix than anticipated, and due to time restraints it goes unresolved.
+
+<br>
+
+## Testing
+
+### Validation
+The following URIs passed through the W3C validator and returned no errors:
+* https://8000-fabianlien-oooicecream-l1sobjd6doz.ws-eu45.gitpod.io/ (*Home*)
+* https://8000-fabianlien-oooicecream-l1sobjd6doz.ws-eu45.gitpod.io/nybrogatan23/ (*Nybrogatan 23 Restaurant*)
+* https://8000-fabianlien-oooicecream-l1sobjd6doz.ws-eu45.gitpod.io/accounts/password/reset/
+* https://8000-fabianlien-oooicecream-l1sobjd6doz.ws-eu45.gitpod.io/accounts/login/
+* https://8000-fabianlien-oooicecream-l1sobjd6doz.ws-eu45.gitpod.io/accounts/signup/
+
+The following files have been passed through PEP8 Online and returned no errors or warnings:
+* BookingApp/admin.py
+* BookingApp/forms.py
+* BookingApp/models.py
+* BookingApp/urls.py
+* BookingApp/views.py
+* Webapp/admin.py
+* Webapp/models.py
+* Webapp/urls.py
+* Webapp/views.py
+
+The file styles.css passed through the W3C Validator with no errors.
+
+The file script.js passed through JSHint with no errors.
+
+<br>
+
+## Deployment
+
+### Development
+
+1. Clone [this repository](https://github.com/TimSchulz1991/msp4-django-8gag)
+2. Install Python
+3. Install Django and create an app using these commands in your terminal
+
+        pip3 install Django==3.2 gunicorn
+        django-admin startproject your_project_name .
+        python3 manage.py startapp your_app_name
+        pip3 install -r requirements.txt
+        python3 manage.py makemigrations
+        python3 manage.py migrate
+
+- Make sure your INSTALLED_APPS in settings.py looks like this:
+
+        INSTALLED_APPS = [
+            'django.contrib.admin',
+            'django.contrib.auth',
+            'django.contrib.contenttypes',
+            'django.contrib.sessions',
+            'django.contrib.messages',
+            'cloudinary_storage',
+            'django.contrib.staticfiles',
+            'cloudinary',
+            'crispy_forms',
+            'your_app_name',
+        ]
+
+4. Create or log in to an account on Heroku
+5. Create a new app on Heroku
+6. Open your app on Heroku and go to Resources, Add-ons and search for PostgreSQL
+7. Add PostgreSQL
+8. In the Deploy section on Heroku, go to Deployment method and add your GitHub repository
+9. Create or log in to an account on Cloudinary
+10. Copy your API Environment Variable
+11. Go back to Heroku, Settings and click on Reveal Config Vars
+12. Add your Cloudinary API variable, SECRET_KEY and DISABLE_COLLECTSTATIC. PostgreSQL should already be there.
+    - CLOUDINARY_URL | your_api_variable
+    - SECRET_KEY | your_choice ([Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/))
+    - DISABLE_COLLECTSTATIC | 1
+13. Create an env.py in the root directory, add it to .gitignore and add these lines at the top
+
+        import os
+
+        os.environ["DATABASE_URL"] = "postgresql from your Heroku config vars"
+        os.environ["SECRET_KEY"] = "your secret_key here"
+        os.environ["CLOUDINARY_URL"] = "cloudinary url here"
+
+14. At the top of your settings.py file, make sure these are added
+
+        from pathlib import Path
+        import os
+        import dj_database_url
+        from django.contrib.messages import constants as messages
+        if os.path.isfile('env.py'):
+            import env
+
+15. Comment out DATABASES in your settings.py file and add the following DATABASES below
+
+        #DATABASES = {
+        #   'default': {
+        #       'ENGINE': 'django.db.backends.sqlite3',
+        #       'NAME': BASE_DIR / 'db.sqlite3',
+        #   }
+        #}
+
+        DATABASES = {
+            'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        }
+
+16. In your settings.py file, make sure DEBUG is set to True
+
+        DEBUG = True
+
+17. In your settings.py file, make sure the static files section looks like this
+
+        STATIC_URL = '/static/'
+        STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+        STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+        STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+        MEDIA_URL = '/media/'
+        MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+        DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+18. In your terminal, run migrations
+
+        python3 manage.py makemigrations
+        python3 manage.py migrate
+
+19. Create a superuser for your site
+
+        python3 manage.py createsuperuser
+
+20. Run your app locally
+
+        python3 manage.py runserver
+
+### Production
+
+1. In your settings.py file, set DEBUG to False
+
+        DEBUG = False
+
+2. Make sure that X_FRAME_OPTIONS and ALLOWED_HOSTS are added to your settings.py file, just under DEBUG
+
+        X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+        ALLOWED_HOSTS = ['your_app_name.herokuapp.com', 'localhost']
+
+3. On Heroku, go to Settings and Reveal Config Vars
+4. Remove DISABLE_COLLECTSTATIC
+5. On Heroku, go to Deploy and scroll down to choose whichever method to deploy you want
+    - You can automatically deploy the app everytime your GitHub repository is updated
+    - You can manually deploy the app
+6. If you need to login to Heroku and deploy via the terminal, this is how it works:
+    - write "heroku login -i" in the terminal and follow the steps to log in to Heroku
+    - write "git push heroku main" to deploy to Heroku
+7. On Heroku, go to the Deploy section and click on the "Open App" button in the top right corner

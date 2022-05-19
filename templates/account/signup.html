@@ -4,15 +4,17 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block nav_content %}
-<li class="nav-item">
-  <a class="nav-link" href="{% url 'home' %}">Home</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="{% url 'nybrogatan23' %}">Nybrogatan 23</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="{{ pdf_menu.pdf.url }}" target="_blank">Download our dessert menu</a>
-</li>
+<ul>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'home' %}">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'nybrogatan23' %}">Nybrogatan 23</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ pdf_menu.pdf.url }}" target="_blank">Download our dessert menu</a>
+  </li>
+</ul>
 {% endblock %}
 
 {% block main_content %}
