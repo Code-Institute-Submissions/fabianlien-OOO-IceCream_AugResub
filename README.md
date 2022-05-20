@@ -168,7 +168,10 @@ A Data modelling tool was used to create an overview of the necessary database m
 
 ## Testing
 
-### Validation
+### Considerations
+In an effort to save valueble time, test driven development has not been utlized for this project. Furthermore, all testing was carried out manually. Given more time the project will also feature automated testing using Djangos built in test suite.
+
+### Code validation
 The following URIs passed through the W3C validator and returned no errors:
 * https://8000-fabianlien-oooicecream-l1sobjd6doz.ws-eu45.gitpod.io/ (*Home*)
 * https://8000-fabianlien-oooicecream-l1sobjd6doz.ws-eu45.gitpod.io/nybrogatan23/ (*Nybrogatan 23 Restaurant*)
@@ -194,7 +197,65 @@ The file script.js passed through JSHint with no errors.
 The following scores were given when running google lighthouse:  
 ![Performance 83/100, Accessability 98/100, Best Practices 75/100, SEO 100/100](screenshots/lighthouse-score-ss.jpg)
 
+### Manual Testing
+#### **Navigation:**
+ Test Map | Action | Expected Result | Result 
+  ---- | ---- | ---- | ---- 
+ Sign In / Register | Click | --> /accounts/login | PASS 
+ Sign Out | Click | --> /accounts/sign out | PASS
+ Navbar logotype | Click | Return to index.html | PASS 
+ Navbar "Wavy" burger icon | Click | Drop-down expansion of navfield | PASS
+ Document | Click | Collapse the dropdown navfield | PASS
+ Navbar Sign In / Register | Click | --> /accounts/login | PASS 
+ Navbar Sign Out | Click | --> /accounts/sign out | PASS
+ Navbar View Reservations | Click | --> /<<user>user> | PASS
+ Navbar About Us | Click | Collapse navbar and move carousel to "About Us" slide | PASS
+ Navbar Ice Cream Flavors | Click | Collapse navbar and move carousel to "Our Ice Cream" slide | PASS
+ Navbar Nybrogatan 23 | Click | Collapse navbar and move carousel to "Nybrogatan 23" slide, trigger zoom animation. --> /Nybrogatan 23 | PASS
+ Download our Dessert Menu | Click | --> (new tab) /pdf | FAIL (Likely a cloudinary issue)
+ Navbar Contact Us | Click | Collapse navbar and move carousel to "Contact Us" slide | PASS
+ Footer Instagram Icon | Click | --> (new tab) instagram.com/ooo.icecream | PASS
 
+#### **Index Page:**
+ Test Map | Action | Expected Result | Result 
+ ---- | ---- | ---- | ---- 
+ Background animation | None | Animation loops infinitely | PASS
+ Carousel prev area | Click | Move carousel to previous slide | PASS
+ Carousel next area | Click | Move carousel to next slide | PASS
+ Carousel item scroll | Click | Move carousel to the corresponding scroll item slide  | PASS
+ Nybrogatan 23 slide | Click | trigger zoom animation. --> /Nybrogatan 23 | PASS
+
+#### **Profile Page:**
+ Test Map | Action | Expected Result | Result 
+ ---- | ---- | ---- | ---- 
+ Profile Banner | None | Display account details | PASS
+ Reservation card Area | None | Display reservation cards or message if none exist | PASS
+ Reservation confirmed/unconfirmed | None | Display reservation status to user | PASS
+ Reservation details | None | Display reservation details to user | PASS
+ Update Message Field | Form submit | Updates the reservation message to new message | PASS
+ Delete Reservation | Click | Removes the reservation card | PASS
+
+#### **Nybrogatan 23 Page:**
+ Test Map | Action | Expected Result | Result 
+ ---- | ---- | ---- | ---- 
+ Image carousel | None | Rotate through restaurant images | Pass
+ Make a Reservation | Click | Expand/Collapse the reservation form field | Pass
+ Send reservation request | Form submit | Clear form, display submit message | Pass (validation OK!)
+ Embedded Google Maps | User interaction | Map responds to user input | FAIL (Dev Tools: "Uncaught (in promise)")
+
+#### **Admin Pages:** 
+ Test Map | Action | Expected Result | Result 
+ ---- | ---- | ---- | ---- 
+ About Statement | Form submit | Update "About" content @ /# | PASS
+ Contacts | Form submit | Update "Contact Us" content @ /# and /Nybrogatan23 | PASS
+ Flavours | Form submit | Update "Our Ice Cream" content @ /# | PASS
+ Nybro23 images | Form submit | Update Images displayed in /nybrogatan23 carousel | PASS
+ Nybrogatan 23 Content | Form submit | Update WYSIWYG field @ /nybrogatan23 | PASS
+ Upload PDF Menu | Form submit | Update pdf file in host library and path | PASS
+
+#### **Additional manual testing:**
+* Additional testing has been performed on all relevant authentication pages and everything works as expected. These tests are not outlined in greater detail because they are included in the AllAuth package and have (presumably) already undergone testing.
+* The responsiveness has been tested by adjusting the window size in Dev Tools and testing the deployed website through a smart phone touch screen interface.
 
 <br>
 
