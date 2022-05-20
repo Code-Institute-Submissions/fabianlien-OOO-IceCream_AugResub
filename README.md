@@ -1,10 +1,16 @@
 # OOO Ice Cream - [Live link](https://ooo-icecream.herokuapp.com/nybrogatan23/)
 
+<br>
+
+![Project landing page GIF](screenshots/landing-page-gif.gif)
+
+
 For "Triple Oh!" ice cream is more than just a sweet, nostalgic treat - it is an exploration of taste and texture, served up cold!
 
 Previously, OOO's online pressence has only extended to a single Instagram account, but with the opening of their first permanent location, they are ready for a fully fledged webpage from which users can access information about their delicious flavours and make reservations at the brand new Nybrogatan23.  
 
-<br>  
+
+<br>
 
 ## Design
 
@@ -21,14 +27,19 @@ This projet takes a user experience aproach to its design elements. The governin
 
 ### Design Features:
 * **Animation**  
-  The landing page features a continous background animation, which provides the user with a sense joie de vivre shared by the Triple Oh! Philosophy.
+  The landing page features a continous background animation, which provides the user with a sense joie de vivre shared by the Triple Oh! Philosophy. (See gif under this documents title).
+
 * **Collapsable Navbar**
   All pages feature a customised collapseable bootstrap navbar with a "wavy" burger icon for all screen sizes. The elimination of constantly visible navbar links prevents the user from being distracted from the main content and simultaneously adds to the slightly minimalist feel of the website.
+  ![Screenshot of expanded navbar](screenshots/navbar-ss.jpg)
+
 * **Carousel**
   - The landing page contains a bootstrap carousel with both manual and time interval rotation. The slides in the carousel provide the user with an immediate overview of key information without cluttering the screen. The carousel works intuitively in its responsiveness.
-  - The Nybrogatan 23 Restaurant page also features a carousel but with a much cleaner look and a soft fade animation as opposed to the standard slide rotation. This serves to establish a more "mature" aura than what the home page strives for.
+  - The Nybrogatan 23 Restaurant page also features a carousel but with a much cleaner look and a soft fade animation as opposed to the standard slide rotation. This serves to establish a more "mature" aura than what the home page strives for. (See gif under this documents title).
+
 * **Cards**
   - Bootstrap's "Card" elements are featured heavily in several page of the site as they provide an easy and spacious way to display smaller snippets of text to the user.
+  ![Screenshot of contact cards](screenshots/cards-ss.jpg)
 
 <br>
 
@@ -40,22 +51,38 @@ The website makes use of Django's built-in Admin view to provide several feature
   Utilizing custom models the admin pages give administrators access to a simple CMS where page content can be update and new media content can be uploaded and displayed.
 * Reservations:
   Through a custom model in the booking app, site administrators can filter through and confirm bookings with ease.
+  ![Screenshot of Djangos admin page](screenshots/admin-page-ss.jpg)
+
 
 <br>
 
 ## User Features
 * User Registration:
   In order to gain access to select backend CRUD functionality, a user can register to the website. Users are prompted to sign in/sign up where needed. This feature takes advantage of AllAuths built in models and templates.
+  ![Screenshot of the user sign in page](screenshots/user-sign-in-ss.jpg)
+
 * Sign in/Sign out:
   A user can easily sign in/out from anywhere on the website, with the current status being reflected to the user at the top of each page.
+
+* Restaurant Page:  
+  A user can (via a link with an animation) navigate to a seperate page for the restaurant.
+  ![Screenshot of the Nybrogatan 23 page](screenshots/nybro23-ss.jpg)
+
 * Reservation form:
   Registered users can utilize a custom reservation model form in order to register a reservation request to the admin pages.
+  ![Screenshot of the reservation form](screenshots/reservation-ss.jpg)
+
 * User profile:
   Users that have logged in gain access to a profile page through the navbar where their personal bookings are display and the user has the option to add/update a message to the restaurant as well as delete bookings from the database.
+   ![Screenshot of the user profile](screenshots/user-profile-ss.jpg)
+
 * External links:
   The site contains an external link to a downloadable PDF menu for Nybrogatan23, and a link to OOO's instagram account. Both open in new tabs.
+   ![Screenshot of the page footer](screenshots/page-footer-ss.jpg)
+
 * Google Maps:
   The Nybrogatan restaurant page also includes an embedded google map through the Maps Javascript API. The map uses has a custom marker for the restaurant so that the user quickly identifies the location of the restaurant, and custom styling in order to blend in with the rest of the page.
+  ![Screenshot of the embedded Google map](screenshots/google-maps-ss.jpg)
 
 <br>
 
@@ -380,3 +407,22 @@ The following scores were given when running google lighthouse:
     - write "heroku login -i" in the terminal and follow the steps to log in to Heroku
     - write "git push heroku main" to deploy to Heroku
 7. On Heroku, go to the Deploy section and click on the "Open App" button in the top right corner
+
+## Credits
+
+### Media content
+All permanent media content is either free to use under the creative commons license (temporary database media files not considered) or has been created/provided by OOO Ice Cream AB, and is therefore used with their permission.
+
+### Code
+* [Django Documentation](https://docs.djangoproject.com/en/4.0/)
+* [Jinja Documentation](https://jinja.palletsprojects.com/en/3.1.x/)
+
+### Tutorials and troubleshooting
+* [Stack Overflow](https://stackoverflow.com/)
+* [W3 Schools Online](https://www.w3schools.com/)
+* [Youtube Tutorials by Dennis Ivy](https://www.youtube.com/c/DennisIvy)
+* Code Institute Full Stack Frameworks (FST) module
+
+### Acknowledgements
+* **Antonio Rodriguez (mentor at Code Institute)** - *Invalueble feedback and help troubleshooting.*
+* **The Code Instute Tutoring and Student Support teams** - *Troubleshooting and support.*
