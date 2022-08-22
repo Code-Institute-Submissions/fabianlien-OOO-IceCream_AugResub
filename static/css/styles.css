@@ -218,19 +218,17 @@ nav .active a {
 /* Footer */
 
 #footer-container {
-    position: sticky;
     bottom: 0;
     background-color: rgb(5 103 53);
     color: rgb(250 244 180);
     height: 10vh;
+    line-height: 10vh;
     text-align: center;
-    line-height: 3vh;
     font-size: 150%;
 }
 
 #footer-container i {
     font-size: 180%;
-    margin-top: 2vh;
     color: rgb(250 244 180);
 }
 
@@ -240,13 +238,7 @@ nav .active a {
 
 @media screen and (min-width: 768px) {
     #footer-container {
-        height: 5vh;
-        line-height: 2vh;
         font-size: 120%;
-    }
-
-    #footer-container i {
-        margin-top: 0.25em;
     }
 }
 
@@ -345,7 +337,7 @@ nav .active a {
     }
 
     .slide-container {
-        height: 84vh;
+        height: 78vh;
     }
 
 }
