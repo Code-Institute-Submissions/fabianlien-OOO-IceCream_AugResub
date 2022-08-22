@@ -136,7 +136,7 @@ nav h1 {
 
 nav {
     font-family: Recoleta, sans-serif;
-    min-height: 15vh;
+    min-height: 10vh;
 }
 
 .nav-burger-icon {
@@ -185,14 +185,24 @@ nav .active a {
     color: rgb(248 186 166);
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 480px) {
+    nav h1 {
+        font-size: 190%;
+    }
+
+    .nav-link{
+        padding: .2rem;
+    }
+}
+
+@media screen and (min-width: 481px) {
     nav a {
         font-size: x-large;
         margin-bottom: 1em;
     }
 
-    nav {
-        min-height: 5vh;
+    .nav-link{
+        padding: .2rem;
     }
 }
 
@@ -408,7 +418,7 @@ nav .active a {
 }
 
 .card-title {
-    font-size: 140%;
+    font-size: 120%;
 }
 
 .card-text {
@@ -423,9 +433,26 @@ nav .active a {
     background-color: rgb(248 186 166);
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 480px) {
+    .card-title {
+        text-align: center;
+        font-size: 140%;
+    }
+
+    .card-text {
+        font-size: 120%;
+    }
+
+    .card-text.small {
+        font-size: 80%;
+    }
+
+}
+
+@media screen and (min-width: 481px) {
     .card-container {
         font-size: 160%;
+        min-height: 160px;
     }
 
     .card-pink {
@@ -458,17 +485,34 @@ nav .active a {
 @media screen and (min-width: 992px) {
     .card-container {
         padding: 4px;
+        font-size: 100%;
     }
 
     .card-body {
         border-radius: 16px;
-        height: 168px;
+        min-height: 100%;
     }
+
+    .card-container:first-of-type .card-pink, .card-card-green {
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+    }
+    
+    .card-container:last-of-type .card-pink, .card-card-green {
+        border-bottom-left-radius: 1em;
+        border-bottom-right-radius: 1em;
+    }
+    
 
     .color-ball {
         left: 1em;
         height: 36px;
         width: 36px;
+    }
+
+    .card-pink .color-ball {
+        left: unset;
+        right: 1em;
     }
 
     .card-subtitle {
@@ -487,7 +531,6 @@ nav .active a {
 /* Visit Nybrogatan slide */
 
 #nybrogatan-image {
-    border: double 2em rgb(5 103 53);
     margin-top: 2vh;
     object-fit: cover;
     max-width: 100%;
@@ -521,6 +564,12 @@ nav .active a {
 #collapse-booking #reservation-no-auth {
     text-decoration: none;
     color: white;
+}
+
+@media screen and (min-width: 481px) {
+    #nybrogatan-image {
+        border: double 2em rgb(5 103 53);
+    }
 }
 
 /* Contact cards slide */
