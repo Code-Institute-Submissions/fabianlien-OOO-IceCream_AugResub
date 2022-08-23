@@ -32,7 +32,7 @@
 
 {% block main_content %}
 <div>
-  <div class="row">
+  <div class="row no-gutters">
     <div class="col-xl-10 offset-xl-1 col-xxl-8 offset-xxl-2">
       <div id="nybro23-image-gallery" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -45,7 +45,7 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row no-gutters">
     <div class="col-lg-10 offset-lg-1">
       <a id="resveration-btn" class="btn btn-success" data-toggle="collapse" href="#collapse-booking" role="button"
         aria-expanded="false">
@@ -66,22 +66,22 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row no-gutters">
     <div id="nybro23-text-container" class="col-10 offset-1 col-xl-8 offset-xl-2">
       <p>{{ text_content.content | safe }}</p>
     </div>
   </div>
-  <div id="nybro-23-contact-us" class="row">
+  <div id="nybro-23-contact-us" class="row no-gutters">
     <div class="col">
       <h3 id="contact-us">Contact Us:</h3>
     </div>
   </div>
-  <div class="row">
+  <div class="row no-gutters">
     {% for contact in contacts %}
     {% if forloop.counter|divisibleby:2 %}
-    <div class="nybro-contact card-body col-12 card-green m-none contact-card">
+    <div class="nybro-contact card-body col-xl-8 offset-xl-3 card-green m-none contact-card">
       {% else %}
-      <div class="nybro-contact card-body col-12 card-pink contact-card-right">
+      <div class="nybro-contact-right card-body col-xl-8 offset-xl-1 card-pink contact-card-right">
         {% endif %}
         {% if "placeholder" in contact.image.url %}
         <div class="color-ball image-ball d-none d-md-inline">

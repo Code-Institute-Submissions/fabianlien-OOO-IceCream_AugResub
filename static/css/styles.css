@@ -701,6 +701,19 @@ nav .active a {
     color: rgb(5 103 53);
 }
 
+.nybro-contact .image-ball {
+    height: 128px;
+    width: 128px;
+    top: 2em;
+    left: 2em;
+}
+
+.nybro-contact-right .image-ball {
+    height: 128px;
+    width: 128px;
+    top: 2em;
+}
+
 .contact-card-nybro23 {
     background-color: rgb(5 103 53);
     color: rgb(228, 228, 196);
@@ -727,11 +740,39 @@ nav .active a {
     width: 100%;
 }
 
+.nybro-contact {
+    min-height: 180px;
+    padding-top: 30px;
+}
+
+.nybro-contact-right {
+    min-height: 180px;
+    padding-top: 30px;
+}
+
+.nybro-contact p {
+    padding-top: 10px;
+}
+
+.nybro-contact-right p {
+    padding-top: 10px;
+}
+
 @media screen and (max-width: 767px) {
     #resveration-btn {
         width: 60%;
         margin: -4em 20% 4em 20%;
         letter-spacing: 0.2em;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .nybro-contact {
+        border-radius: unset;
+    }
+
+    .nybro-contact-right {
+        border-radius: unset;
     }
 }
 
@@ -748,6 +789,26 @@ nav .active a {
     #collapse-booking {
         background-color: rgb(5 103 53);
         margin-top: -2em;
+    }
+
+    .nybro-contact {
+        border-radius: 60px;
+    }
+
+    .nybro-contact-right {
+        border-radius: 60px;
+    }
+
+    .nybro-contact p {
+        font-size: 150%;
+        letter-spacing: 2px;
+        padding-right: 10%;
+    }
+
+    .nybro-contact-right p {
+        font-size: 150%;
+        letter-spacing: 2px;
+        padding-left: 10%;
     }
 }
 
