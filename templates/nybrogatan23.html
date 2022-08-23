@@ -25,7 +25,7 @@
     <a class="nav-link" href="{{ pdf_menu.pdf.url }}" target="_blank">Download our dessert menu</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Contact Us</a>
+    <a class="nav-link" href="#contact-us">Contact Us</a>
   </li>
 </ul>
 {% endblock %}
@@ -79,9 +79,9 @@
   <div class="row">
     {% for contact in contacts %}
     {% if forloop.counter|divisibleby:2 %}
-    <div class="card-body col-12 card-green m-none contact-card">
+    <div class="nybro-contact card-body col-12 card-green m-none contact-card">
       {% else %}
-      <div class="card-body col-12 card-pink contact-card-right">
+      <div class="nybro-contact card-body col-12 card-pink contact-card-right">
         {% endif %}
         {% if "placeholder" in contact.image.url %}
         <div class="color-ball image-ball d-none d-md-inline">

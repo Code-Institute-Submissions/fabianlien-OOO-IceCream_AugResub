@@ -31,11 +31,11 @@
             <p>Account email: {{ user.email }}</p>
             <br>
         </div>
-        <div class="row reservation-container">
+        <div class="row reservation-container no-gutters">
             {% if reservations  %}
             {% for reservation in reservations %}
             <div class="profile-card col-lg-5 col-xxl-3">
-                <div class="row">
+                <div class="row no-gutters">
                     <div class="col">
                         {% if reservation.reservation_status == 1 %}<div>The reservation has been
                             confirmed!</div>{% else %}<div class="not-confirmed">The reservation is not yet confirmed!

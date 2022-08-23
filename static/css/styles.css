@@ -96,16 +96,21 @@ h3 {
 
 .user-status {
     position: sticky;
+    background-color: rgb(5 103 53);
     top: 0;
-    z-index: 2;
+    z-index: 3;
     width: 100%;
     text-align: right;
     padding-right: 2em;
-    height: 2vh;
+    height: 4vh;
+}
+
+.user-status p {
+    color: rgb(248 186 166);
 }
 
 .user-status a {
-    color: rgb(5 103 53);
+    color:rgb(228, 228, 196);
 }
 
 body::-webkit-scrollbar {
@@ -221,10 +226,9 @@ nav .active a {
     bottom: 0;
     background-color: rgb(5 103 53);
     color: rgb(250 244 180);
-    height: 10vh;
-    line-height: 10vh;
+    height: 8vh;
+    line-height: 8vh;
     text-align: center;
-    font-size: 150%;
 }
 
 #footer-container i {
@@ -364,7 +368,7 @@ nav .active a {
 .big-card h5 {
     display: inline-block;
     vertical-align: middle;
-    margin-left: 5vh;
+    margin-left: 5vw;
     margin-right: 5vw;
     line-height: normal;
     font-size: 160%;
@@ -376,7 +380,7 @@ nav .active a {
     background-color: rgb(248 186 166);
     border-radius: 50%;
     margin-top: 2.5vh;
-    margin-left: 5%;
+    margin-left: auto;
 }
 
 #landing-slide-image {
@@ -388,10 +392,24 @@ nav .active a {
     right: 10%;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 384px) {
+    .big-card {
+        border-radius: 90px;
+        text-align: center;
+    }
+
+    .big-card h5 {
+        padding: 48px 24px;
+        font-size: 140%;
+    }
+}
+
+@media screen and (min-width: 385px) and (max-width: 767px) {
     .big-card {
         border-radius: 120px;
         text-align: center;
+        margin-left: .5em;
+        margin-right: .5em;
     }
 
     .big-card h5 {
@@ -416,6 +434,10 @@ nav .active a {
 
 .card-title {
     font-size: 120%;
+}
+
+.card-pink .flavour-title {
+    width: 85%;
 }
 
 .card-text {
@@ -823,6 +845,7 @@ form {
 
 .res-info-container p {
     overflow: hidden;
+    padding-left: 1em;
 
 }
 

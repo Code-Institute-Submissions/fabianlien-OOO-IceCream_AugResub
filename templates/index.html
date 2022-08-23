@@ -54,16 +54,16 @@
                     <div class="carousel-item active">
                         <div class="d-block slide">
                             <h3>{{ about.title }}</h3>
-                            <div class="row">
-                                <div class=" col-lg-10 offset-lg-1 big-card">
-                                    <div class="row">
+                            <div class="row no-gutters">
+                                <div class="col-lg-10 offset-lg-1 big-card">
+                                    <div class="row no-gutters">
                                         <div class="col-5 d-none d-md-inline">
                                             <div id="landing-slide-image-border">
                                                 <img id="landing-slide-image" src="{{ about.image.url }}"
                                                     alt="{{ about.image_alternative_text }}">
                                             </div>
                                         </div>
-                                        <div class="col-md-6 offset-md-1">
+                                        <div class="col-md-6">
                                             <h5>{{ about.content }}</h5>
                                         </div>
                                     </div>
@@ -86,7 +86,7 @@
                                             {% endif %}
                                             <div class="color-ball d-none d-sm-block" style="background-color:{{ flavour.color }}">
                                             </div>
-                                            <p class="card-title">{{ flavour.name }}</p>
+                                            <p class="flavour-title card-title">{{ flavour.name }}</p>
                                             <p class="card-subtitle mb-2 text-muted">{{ flavour.category }}</p>
                                             <p class="card-text">"{{ flavour.description }}"</p>
                                             <p class="card-text small">Allergens: {{ flavour.allergens }}</p>
