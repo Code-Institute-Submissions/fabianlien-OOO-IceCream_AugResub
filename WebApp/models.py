@@ -30,10 +30,11 @@ class About(SingletonModel):
 
 class MenuPDF(SingletonModel):
     """
-    Provides administrators with CRUD functionality for the "Flavours" slide.
+    Allows administrators to upload a pdf file of the menu.
     """
-    pdf = models.FileField(
-        upload_to='static/pdf/',
+    pdf = CloudinaryField(
+        folder='static/pdf/',
+        public_id='menu',
         validators=[FileExtensionValidator(allowed_extensions=["pdf"])]
         )
 
@@ -46,8 +47,7 @@ class MenuPDF(SingletonModel):
 
 class Flavour(models.Model):
     """
-    Allows administrators to store employee contact information
-    and display it on the webpage.
+    Provides administrator CRUD functionality for ice cream flavors.
     """
     name = models.CharField(max_length=20, unique=True)
     category = models.CharField(max_length=20)
@@ -91,8 +91,8 @@ class Contact(models.Model):
 
 class Nybro23Image(models.Model):
     """
-    Allows administrators to upload a single image file
-    in *.jpg* or *.png* format to be displayed on the home page.
+    Allows administrators to upload images to be
+    displayed in the carousel on the Nybrogatan page.
     """
     name = models.CharField(max_length=40, blank=True)
     image = CloudinaryField(

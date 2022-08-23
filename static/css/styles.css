@@ -340,6 +340,11 @@ nav .active a {
         height: 78vh;
     }
 
+    #carouselExampleIndicators a span {
+        display: none;
+    }
+    
+
 }
 
 
