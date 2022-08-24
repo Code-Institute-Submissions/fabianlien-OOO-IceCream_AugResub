@@ -84,9 +84,16 @@ h3 {
     top: 2em;
     margin-left: 15%;
     width: 70%;
-    z-index: 2;
+    z-index: 4;
 }
 
+.help-block {
+    background-color: rgb(165, 4, 4);
+    letter-spacing: 1px;
+    border-radius: 1em;
+    padding: 0.2em;
+    margin-top: 0.2em;
+}
 
 /* Navbar */
 
