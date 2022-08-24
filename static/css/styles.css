@@ -24,8 +24,8 @@ input {
     border: none;
 }
 
-/* Background animation */
 
+/* Background animation */
 
 .animated-background {
     position: relative;
@@ -66,7 +66,6 @@ input {
     }
 }
 
-
 h3 {
     padding-bottom: 1em;
 }
@@ -76,6 +75,7 @@ h3 {
     background-color: rgb(228, 228, 196);
     border-radius: 3em;
 }
+
 
 /* Django Messages */
 
@@ -94,6 +94,7 @@ h3 {
     padding: 0.2em;
     margin-top: 0.2em;
 }
+
 
 /* Navbar */
 
@@ -213,7 +214,7 @@ nav .active a {
         margin-bottom: 1em;
     }
 
-    .nav-link{
+    .nav-link {
         padding: .2rem;
     }
 }
@@ -223,6 +224,16 @@ nav .active a {
         height: 64px;
         margin-right: 5vw;
         margin-top: -8px;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    .user-status {
+        display: none;
+    }
+
+    nav a {
+        margin-bottom: 0;
     }
 }
 
@@ -247,11 +258,18 @@ nav .active a {
     color: rgb(248 186 166);
 }
 
+@media screen and (max-height: 600px) {
+    #footer-container {
+        height: 12vh;
+    }
+}
+
 @media screen and (min-width: 768px) {
     #footer-container {
         font-size: 120%;
     }
 }
+
 
 /* Index page */
 
@@ -354,8 +372,13 @@ nav .active a {
     #carouselExampleIndicators a span {
         display: none;
     }
-    
+}
 
+@media screen and (max-height: 600px) {
+
+    .carousel-indicators {
+        display: none;
+    }
 }
 
 
@@ -420,6 +443,32 @@ nav .active a {
         font-size: 180%;
         margin-left: 5vw;
         margin-right: 5vw;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    
+    #landing-card {
+        margin-top: -20px;
+    }
+    
+    #landing-slide-image-container {
+        display: none!important;
+    }
+
+    #landing-slide-text-container {
+        flex: 0 0 100%;
+        max-width: 90%;
+        text-align: left;
+    }
+}
+
+@media screen and (max-height: 600px) and (max-width: 767px) {
+    .big-card h5 {
+        padding: 10px;
+        padding-left: 12vw;
+        margin: 0 auto;
+        text-align: center;
     }
 }
 
@@ -600,6 +649,13 @@ nav .active a {
         border: double 2em rgb(5 103 53);
     }
 }
+
+@media screen and (max-height: 900px) {
+    #nybrogatan-image {
+        margin-top: -4vh;
+    }
+}
+
 
 /* Contact cards slide */
 
@@ -822,6 +878,7 @@ nav .active a {
     }
 }
 
+
 /* Booking page */
 
 #booking-body {
@@ -851,6 +908,7 @@ form {
     border-radius: 0.25em;
 }
 
+
 /* AllAuth templates */
 
 .alert-block {
@@ -871,8 +929,14 @@ form {
     border-radius: 0.25em;
 }
 
-/* Profile page */
+@media screen and (max-height: 600px) {
+    .auth-card {
+        margin-bottom: 2em;
+    }
+}
 
+
+/* Profile page */
 
 #profile-background-container {
     background-image: url("/static/images/Infinity-3840x2160-min.jpg");
