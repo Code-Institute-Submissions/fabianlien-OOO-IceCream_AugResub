@@ -939,7 +939,6 @@ form {
 /* Profile page */
 
 #profile-background-container {
-    background-image: url("/static/images/Infinity-3840x2160-min.jpg");
     background-position: center; 
     background-size: cover;
     background-repeat: repeat-y;   

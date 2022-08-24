@@ -19,7 +19,7 @@
 {% endblock %}
 
 {% block main_content %}
-<div id="profile-background-container">
+<div id="profile-background-container" style="background-image: url({% static 'images/Infinity-3840x2160-min.jpg'%})">
     <div class="main-container">
         {% if user.is_authenticated %}
         <div class="profile-banner">
